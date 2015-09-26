@@ -6,6 +6,11 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('finance');
+  this.route('goals');
+  this.route('resources');
+  this.route('survey');
+  this.route('investment');
 });
 
 export default Router;
