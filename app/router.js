@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('finance');
+  this.route('finance', {path: '/'});
   this.route('goals');
   this.route('resources');
   this.route('survey');

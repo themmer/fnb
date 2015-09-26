@@ -1,4 +1,5 @@
 {{#mdl-nav title='TPS Reports' fixedHeader=true}}
+
   {{mdl-nav-item name='Personal Finance'    route='finance'}}
   {{mdl-nav-item name='Goals'               route='goals'}}
   {{mdl-nav-item name='Investments'         route='investment'}}
@@ -7,9 +8,26 @@
     {{mdl-icon badge='6' icon='account_box'}}
   {{/mdl-nav-item}}
 
+{{#mdl-nav-item name='Settings'}}
+
+ {{/mdl-nav-item}}
+
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
       {{outlet}}
     </div>
   </div>
 {{/mdl-nav}}
+
+<ul class="user-account">
+  <li>Welcome Tim</li>
+  <li>
+    <form>
+    <select>
+        <option>Tim</option>
+        <option>Anna</option>
+        <option>Steve</option>
+    </select>
+    </form>
+  </li>
+</ul>

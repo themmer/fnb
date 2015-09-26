@@ -18,7 +18,7 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  // c3
+  app.import('bower_components/jquery.cookie/jquery.cookie.js');
   app.import('bower_components/d3/d3.min.js');
   app.import('bower_components/c3/c3.min.js');
   app.import('bower_components/c3/c3.min.css');

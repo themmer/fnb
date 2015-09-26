@@ -2,12 +2,11 @@ export default function() {
 
   this.namespace = '/rest';
 
+  /**
+   Get's a list of users for presentation purposes.
+   */
   this.get('/users', function(db, request) {
-    console.log('users db', db);
-    console.log('request query params', request.queryParams);
-    var result = {users: db['users'].where(request.queryParams)};
-    console.log('result', result);
-    return result;
+    return {users: db['users'].where(request.queryParams)};
   });
 
   // These comments are here to help you get started. Feel free to delete them.
