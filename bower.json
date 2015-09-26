@@ -18,5 +18,8 @@
     "material-design-lite": "~1.0.4",
     "pretender": "~0.9.0",
     "qunit": "~1.19.0"
+  },
+  "resolutions": {
+    "d3": "~3.5.6"
   }
 }

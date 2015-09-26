@@ -24,7 +24,6 @@ Personal Finance Component
   </div>
 </div>
 
-
 ** if yes and there is a note about conditional for life stages **
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
@@ -32,10 +31,7 @@ Personal Finance Component
   </div>
   <div class="mdl-card__supporting-text">
 		<form action="#">
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" type="text" id="monthlyIncome" />
-		    <label class="mdl-textfield__label" for="monthlyIncome">$</label>
-		  </div>
+      {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input a number"}}
 		</form>
 		Info box: Monthly income may include the following: salary, side jobs
   </div>
@@ -48,10 +44,7 @@ Personal Finance Component
   </div>
   <div class="mdl-card__supporting-text">
 		<form action="#">
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" type="text" id="spendLimit" />
-		    <label class="mdl-textfield__label" for="spendLimit">$</label>
-		  </div>
+      {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input an amount"}}
 		</form>
   </div>
 </div>
@@ -62,7 +55,7 @@ Personal Finance Component
 
 <br/>
 ** donut graph container goes here **
-<br/>
+<br/>s
 
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
@@ -71,10 +64,7 @@ Personal Finance Component
   <div class="mdl-card__supporting-text">
   	Assumed living expenses (includes food, transport, entertainment, rent, etc.)
 		<form action="#">
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" type="text" id="spendLimit" />
-		    <label class="mdl-textfield__label" for="spendLimit">$</label>
-		  </div>
+      {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input an amount"}}
 		</form>
   </div>
 </div>
@@ -98,3 +88,5 @@ Personal Finance Component
 
 ** if no from above **
 Please see {{#mdl-button isColored=true isRaised=true}}Investments{{/mdl-button}} or {{#mdl-button isColored=true isRaised=true}}Goals{{/mdl-button}}
+
+{{display-debt}}
