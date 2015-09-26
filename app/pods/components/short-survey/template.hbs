@@ -4,23 +4,10 @@
   </div>
   <div class="mdl-card__supporting-text">
 		<form action="#">
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" type="text" id="name" />
-		    <label class="mdl-textfield__label" for="name">Name</label>
-		  </div>
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" pattern="-?[0-9]*(\.[0-9]+)?" type="text" id="age" />
-		    <label class="mdl-textfield__label" for="age">Age</label>
-		    <span class="mdl-textfield__error">Please input a number</span>
-		  </div>
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" type="text" id="email" />
-		    <label class="mdl-textfield__label" for="email">Email</label>
-		  </div>
-		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		    <input class="mdl-textfield__input" type="text" id="phone" />
-		    <label class="mdl-textfield__label" for="phone">Phone</label>
-		  </div>
+		 	{{mdl-textfield label="Name" value=name isLabelFloating=true}}
+		  {{mdl-textfield label="Age" value=age isLabelFloating=true pattern="-?[0-9]*(\.[0-9]+)?" errorMessage="Please input a number"}}
+		  {{mdl-textfield label="Email" value=email isLabelFloating=true}}
+		  {{mdl-textfield label="Phone" value=phone isLabelFloating=true}}
 		</form>
   </div>
 </div>
@@ -33,17 +20,17 @@
   </div>
   <div class="mdl-card__supporting-text">
 		<form action="#">
-			<div class="mdl-select mdl-js-select mdl-select--floating-label">
-        <select class="mdl-select__input" id="stage" name="stage">
-          <option value="HIGHSCHOOOL">High School</option>
-          <option value="COLLEGE">College</option>
-          <option value="CAREER">Career</option>
-        </select>
-      </div>
+			{{mdl-radio value="HIGHSCHOOL" text='High School' name='life'}}
+			{{#mdl-radio name='life' value="COLLEGE"}}
+			  College
+			{{/mdl-radio}}
+			{{#mdl-radio name='life' value="CAREER"}}
+			  Career
+			{{/mdl-radio}}
 		</form>
   </div>
 </div>
 
 <br/>
 
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Lets Go!</button>	
+{{#mdl-button isColored=true isRaised=true}}Let's Go!{{/mdl-button}}
