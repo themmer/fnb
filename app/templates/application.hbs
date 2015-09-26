@@ -1,49 +1,13 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+{{#mdl-nav title='TPS Reports' fixedHeader=true}}
+  {{mdl-nav-item name='Personal Finance'    route='finance'}}
+  {{mdl-nav-item name='Goals'               route='goals'}}
+  {{mdl-nav-item name='Investments'         route='investment'}}
+  {{mdl-nav-item name='Resources'           route='resources'}}
 
-  <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
-    <div class="mdl-layout__header-row">
-      <span class="android-title mdl-layout-title">
-        <img class="android-logo-image" src="images/android-logo.png">
-      </span>
-      <!-- Add spacer, to align navigation to the right in desktop -->
-      <div class="android-header-spacer mdl-layout-spacer"></div>
-
-      <!-- Navigation -->
-      <div class="android-navigation-container">
-        <nav class="android-navigation mdl-navigation">
-          {{#link-to "finance" class="mdl-navigation__link mdl-typography--text-uppercase"}}Personal Finance{{/link-to}}
-          {{#link-to "goals" class="mdl-navigation__link mdl-typography--text-uppercase"}}Goals{{/link-to}}
-          {{#link-to "investment" class="mdl-navigation__link mdl-typography--text-uppercase"}}Investments{{/link-to}}
-          {{#link-to "resources" class="mdl-navigation__link mdl-typography--text-uppercase"}}Resources{{/link-to}}
-        </nav>
-      </div>
-      <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
-        <i class="material-icons">more_vert</i>
-      </button>
-      <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-        <li class="mdl-menu__item">Chat with Advisor</li>
-        <li class="mdl-menu__item">Contact First National</li>
-      </ul>
-      <span class="android-mobile-title mdl-layout-title">
-        <img class="android-logo-image" src="images/android-logo.png">
-      </span>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      {{outlet}}
     </div>
   </div>
+{{/mdl-nav}}
 
-  <div class="android-drawer mdl-layout__drawer">
-    <span class="mdl-layout-title">
-      <img class="android-logo-image" src="images/android-logo-white.png">
-    </span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Contact Advisor</a>
-      <a class="mdl-navigation__link" href="">Contact First National</a>
-      <a class="mdl-navigation__link" href="">Chat with Advisor</a>
-    </nav>
-  </div>
-
-  <div class="android-content mdl-layout__content">
-    <a name="top"></a>
-  </div>
-</div>
-
-{{outlet}}
