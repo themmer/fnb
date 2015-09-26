@@ -2,7 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
+    contentSecurityPolicy: {
+      'font-src': "'self' data: fonts.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
+      // 'img-src': "'self' http://use.typekit.net",
+      // 'script-src': "'unsafe-eval' 'unsafe-inline' http://localhost:4200",
+    },
     modulePrefix: 'fnb',
+    podModulePrefix: 'fnb/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -16,6 +23,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    sassOptions: {
+      includePaths: ['bower_components/material-design-lite/src']
     }
   };
 
