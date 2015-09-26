@@ -1,0 +1,29 @@
+// 2 Card Group
+.card-group-2up {
+    .tps-card-square {
+    display: table-row;
+    }
+    .tps-card-wide, .tps-card-square {
+    display: inline-block;
+    }
+}
+
+// Wide Card
+.tps-card-wide.mdl-card {
+    width: 512px;
+}
+
+// Square Card
+.tps-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+
+.tps-card-square > .mdl-card__title {
+    color: #fff;
+    background: url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
+
+.snippet-tps-padding {
+    width: 50%;
+}
