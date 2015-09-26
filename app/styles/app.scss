@@ -1,7 +1,11 @@
+@import 'normalize';
 @import 'material-design-lite';
 @import 'charts';
+@import 'colors';
 @import 'fonts';
+@import 'header';
 
 body {
-  font-family: 'Raleway', sans-serif !important
+    font-family: 'Raleway', sans-serif !important
 }
+
