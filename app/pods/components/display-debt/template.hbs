@@ -1,1 +1,33 @@
-display debt comp
+display debt comp 
+
+<br/ >** sort highest APR descending **
+
+{{#mdl-table content=debtList as |debt|}}
+	{{#mdl-table-col label=''}}
+		check
+	{{/mdl-table-col}}
+	{{#mdl-table-col label='Name'}}
+		{{debt.name}}
+	{{/mdl-table-col}}
+	{{#mdl-table-col label='Total Amount'}}
+		{{debt.name}}
+	{{/mdl-table-col}}
+	{{#mdl-table-col label='Monthly Payment'}}
+		{{debt.name}}
+	{{/mdl-table-col}}
+	{{#mdl-table-col label='Recommended Payment'}}
+		$$$ comp.prop
+		<p>{{mdl-slider min=0 max=100  value=57}}</p>
+	{{/mdl-table-col}}
+	{{#mdl-table-col label='You Save'}}
+		$$$ comp.prop
+	{{/mdl-table-col}}
+{{/mdl-table}}
+
+<br/>
+
+{{#mdl-button isColored=true isRaised=true}}Add Goals{{/mdl-button}}
+
+<br/>
+
+We recommend paying off the highest interest rates first on what you owe'
