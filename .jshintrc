@@ -3,7 +3,11 @@
     "server",
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "c3",
+    "d3",
+    "$",
+    "jQuery"
   ],
   "browser": true,
   "boss": true,
