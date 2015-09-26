@@ -14,14 +14,12 @@
 {{/mdl-nav}}
 
 <ul class="user-account">
-  <li>Welcome Tim</li>
+  <li>{{user.name}}</li>
   <li>
-    <form>
-    <select>
-        <option>Tim</option>
-        <option>Anna</option>
-        <option>Steve</option>
-    </select>
-    </form>
+    {{#mdl-menu align='bottom-right' class='right'}}
+      {{#each users as |user|}}
+        {{#mdl-menu-item action='changeUser' userId=user.id}}{{user.name}}{{/mdl-menu-item}}
+      {{/each}}
+    {{/mdl-menu}}
   </li>
 </ul>

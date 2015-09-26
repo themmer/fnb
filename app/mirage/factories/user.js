@@ -1,6 +1,9 @@
 import Mirage from 'ember-cli-mirage';
 
 export default Mirage.Factory.extend({
+  id(i) {
+    return i;
+  },
   name(i) {
     return ['Bam Bam', 'Fred', 'Wilma', 'Barney', 'Betty'][i];
   },
