@@ -1,0 +1,43 @@
+.mdl-layout__header {
+    background: $dark-green;
+    min-height: 84px;
+}
+
+.mdl-layout__header-row {
+    .mdl-navigation__link {
+        font-size: 14px;
+        line-height: 34px;
+        &:hover, &:active {
+        color: $light-green;
+        }
+    }
+    .mdl-navigation {
+        margin-top: 60px;
+    }
+}
+
+.mdl-layout-title {
+    font-size: 24px;
+    font-family: Raleway, Helvetica, Arial, sans-serif;
+}
+
+.user-account {
+    list-style-type: none;
+    position: absolute;
+    top: -10px;
+    right: 55px;
+    z-index: 10;
+    li {
+        display: inline-block;
+        color: $light-green;
+        margin-left: 24px;
+    }
+    select {
+        background: $dark-green;
+        border: 1px solid $light-green;
+        color: $light-green;
+        width: 120px;
+        border-radius: 2px;
+        padding: 5px;
+    }
+}
