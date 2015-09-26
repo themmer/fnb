@@ -6,8 +6,14 @@ export default function() {
    Get's a list of users for presentation purposes.
    */
   this.get('/users', function(db, request) {
+    console.log('query params => ', request.queryParams);
     return {users: db['users'].where(request.queryParams)};
   });
+
+  /**
+   Get a single user.
+   */
+  this.get('/users/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 

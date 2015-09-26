@@ -1,13 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  session: Ember.inject.service(),
+  /**
+   The session service.
+
+   @private
+   @property session
+   @type Object
+   */
 
   beforeModel() {
     // Side load users from the /users api.  Normally, we would not
     // do this but we need to show different use cases during our
     // presentation.
-    return this.store.findAll('user');
+    return this.store.findAll('user')
+      .then((users) => {
+        this.controllerFor('application').set('users', users);
+      });
   },
 
   model() {
@@ -30,16 +39,19 @@ export default Ember.Route.extend({
     }
 
     // Unable to find or hydrate a user.  Creating a new one instead
-    user = this.store.createRecord('user');
+    user = this.store.createRecord('user', {
+      name: 'New User'
+    });
+
     session.set('user', user);
 
     return true;
   },
 
   actions: {
-    loadNewUser(userId) {
+    changeUser(user) {
       let session = this.get('session');
-      session.set('user', this.store.query('user', userId));
+      session.set('user', this.store.findRecord('user', user.get('userId')));
     }
   }
 });
