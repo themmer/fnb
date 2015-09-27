@@ -1,50 +1,20 @@
-**Settings comp**
-
-** -- User Details**
-
-** need to make the edit user details a component **
 <div class="mdl-grid settings demo-content">
-<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-  <div class="mdl-card mdl-cell mdl-cell--12-col">
-  <div class="mdl-card__supporting-text">
-{{user-details}}
-    
--- Notifications
-
-{{input type="checkbox" name="hasEmailNotifications" checked=user.hasEmailNotifications}} Text Notifications
-{{input type="checkbox" name="hasTextNotificaitons" checked=user.hasTextNotificaitons}} Email Notifications
-
-    </div>
-
-    <div class="mdl-card__actions">
-      <a href="#" class="mdl-button">
-    
-Frequency of Updates</a> {{input value=user.settings.frequencyNotification}} (in months)
-    </div>
-
-    </div>
-</section>
-</div>
-
-<!-- <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-  <div class="mdl-card mdl-cell mdl-cell--12-col">
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
     <div class="mdl-card__supporting-text">
-      <h4>Technology</h4> Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor laboris eiusmod qui id Lorem esse commodo in. Exercitation aute dolore deserunt culpa consequat elit labore incididunt elit anim.
-    </div> -->
+    <h4 class="mdl-cell--12-col">Settings</h4>
+    {{user-details}}
+
+    <h5>Notification settings</h5>
+
+    {{input type="checkbox" name="hasEmailNotifications" checked=user.hasEmailNotifications}} Text Notifications
+    {{input type="checkbox" name="hasTextNotificaitons" checked=user.hasTextNotificaitons}} Email Notifications
+
+    <h5>Frequency of Updates</h5> {{input value=user.settings.frequencyNotification}} (in months)
+    </div>
     <!-- <div class="mdl-card__actions">
-      <a href="#" class="mdl-button">Read our features</a>
+        <a href="#" class="mdl-button">Submit</a>
     </div> -->
-  <!-- </div> -->
-  <!-- <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3" data-upgraded=",MaterialButton,MaterialRipple">
-    <i class="material-icons">more_vert</i>
-    <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span>
-  </button>
-  <div class="mdl-menu__container is-upgraded">
-    <div class="mdl-menu__outline mdl-menu--bottom-right"></div>
-    <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3" data-upgraded=",MaterialMenu">
-      <li class="mdl-menu__item" tabindex="-1">Lorem</li>
-      <li class="mdl-menu__item" disabled="" tabindex="-1">Ipsum</li>
-      <li class="mdl-menu__item" tabindex="-1">Dolor</li>
-    </ul> -->
- <!--  </div>
-</section> -->
+    </div>
+    </section>
+</div>
