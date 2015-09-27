@@ -4,6 +4,13 @@
       <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
         <h4 class="mdl-cell--12-col">Cashflow Overview</h4>
         <div class="status-graphs section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+          <div class="status-graphs-details">
+            <h5>Available Monthly Income</h5>
+            <p>${{user.monthlyIncome}}</p>
+
+            <h5>Total Monthly Debt</h5>
+            <p>${{user.totalMonthlyDebt}}</p>
+          </div>
           {{donut-chart data=(mut income) donutTitle=(mut incomeTitle)}}
           {{pie-chart data=(mut debt)}}
         </div>
