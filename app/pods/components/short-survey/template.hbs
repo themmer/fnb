@@ -1,32 +1,53 @@
-
 {{#if isIntroDone}}
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Please tell us about yourself</h2>
-  </div>
-  <div class="mdl-card__supporting-text">
-  	{{user-details}}
-  </div>
-</div>
+  {{#mdl-card
+    class="mdl-card mdl-cell mdl-cell--12-col"
+    title="Tell us about yourself"
+  }}
+    <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+      <i class="material-icons">play_circle_filled</i>
+    </header>
 
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Where are you now?</h2>
-  </div>
-  <div class="mdl-card__supporting-text">
-		<form action="#">
-			{{mdl-radio value="HIGHSCHOOL" text='High School' name='stageInLife' checked=isHighSchoolChecked action="highSchoolSelected"}}
-			{{#mdl-radio name='stageInLife' value="COLLEGE" checked=isCollegeChecked action='collegeSelected'}}
-			  College
-			{{/mdl-radio}}
-			{{#mdl-radio name='stageInLife' value="CAREER" checked=isCareerChecked action='careerSelected'}}
-			  Career
-			{{/mdl-radio}}
-		</form>
-  </div>
-</div>
+    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+      <div class="mdl-card__supporting-text">
+        <h3>1. Please tell us about yourself</h3>
+        {{user-details}}
+      </div>
 
-	<br/>
+      <div class="mdl-card__supporting-text">
+        <h3>2. Where are you now?</h3>
+        <form action="#">
+          {{mdl-radio
+            action="stageInLifeAction"
+            checked=isHighSchoolChecked
+            name="stageInLife"
+            text="High School"
+            value="HIGHSCHOOL"
+            }}
 
-	{{#mdl-button isColored=true isRaised=true action='surveyDoneAction'}}Let's Go!{{/mdl-button}}
+          {{mdl-radio
+            action="stageInLifeAction"
+            checked=isCollegeChecked
+            name="stageInLife"
+            text="College"
+            value="COLLEGE"}}
+
+          {{mdl-radio
+            action="stageInLifeAction"
+            checked=isCareerChecked
+            name="stageInLife"
+            text="Career"
+            value="CAREER"}}
+        </form>
+      </div>
+    </div>
+    {{#mdl-card-actions}}
+      {{#mdl-button
+        action="surveyDoneAction"
+        isColored=true
+        isRaised=true
+      }}
+        Let's Go!
+      {{/mdl-button}}
+    {{/mdl-card-actions}}
+  {{/mdl-card}}
 {{/if}}

@@ -14,21 +14,33 @@ export default Ember.Component.extend({
   debtGoals: computed('session.user.goalList.[]', {
     get() {
       let goalList = this.get('session.user.goalList');
-      return goalList.filter(goal => goal.type === 'DEBT');
+
+      if (Ember.isArray(goalList)) {
+        return goalList.filter(goal => goal.type === 'DEBT');
+      }
+      return [];
     }
   }),
 
   investmentGoals: computed('session.user.goalList.[]', {
     get() {
       let goalList = this.get('session.user.goalList');
-      return goalList.filter(goal => goal.type === 'INVESTMENT');
+
+      if (Ember.isArray(goalList)) {
+        return goalList.filter(goal => goal.type === 'INVESTMENT');
+      }
+      return [];
     }
   }),
 
   shoppingGoals: computed('session.user.goalList.[]', {
     get() {
       let goalList = this.get('session.user.goalList');
-      return goalList.filter(goal => goal.type === 'SHOPPING');
+
+      if (Ember.isArray(goalList)) {
+        return goalList.filter(goal => goal.type === 'SHOPPING');
+      }
+      return [];
     }
   }),
 
@@ -59,6 +71,7 @@ export default Ember.Component.extend({
     noop: function () {},
     saveGoal: function () {
       let user = this.get('user');
+      let goalList = user.get('goalList');
       let goal = {
         name: this.get('goalName'),
         amount: this.get('goalAmount'),
@@ -67,7 +80,12 @@ export default Ember.Component.extend({
         type: 'SHOPPING'
       };
 
-      user.get('goalList').pushObject(goal);
+      if (Ember.isArray(goalList)) {
+        goalList.pushObject(goal);
+      } else {
+        user.set('goalList', [goal]);
+      }
+
       user.save()
         .then(() => {
           this.setProperties({

@@ -3,10 +3,7 @@
   title="How Much You Owe"}}
   <!-- Existing debt items container -->
   <div class="mdl-card__supporting-text">
-    <p>
-    * We recommend paying off the highest interest rates first on what you owe.
-    </p>
-
+    <h5>Existing Debt</h5>
     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
       <thead>
         <tr>
@@ -35,6 +32,9 @@
         {{/each}}
       </tbody>
     </table>
+    <p>
+      * We recommend paying off the highest interest rates first on what you owe.
+    </p>
 
     {{#if hasPendindGoals}}
       {{#mdl-button isColored=true isRaised=true}}
