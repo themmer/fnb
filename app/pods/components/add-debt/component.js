@@ -42,10 +42,6 @@ export default Ember.Component.extend({
 	actions: {
     noop: function() {},
 
-    debtDoneAction: function() {
-      this.set('user.isDebtDone', true);
-    },
-
     updateDebtList: function() {
       let user = this.get('user');
       let debtList = user.get('debtList');

@@ -18,7 +18,7 @@
                   value=user.livingExpenses
                 }}
               </form>
-            
+
               <h5>Do you owe any money?</h5>
               <form {{action "noop" on="submit"}}>
                 {{mdl-radio
@@ -36,19 +36,24 @@
                   value="noDebt"
                 }}
               </form>
-            
+
               {{#if user.hasDebt}}
                 {{add-debt}}
               {{else}}
-                  <h5>Awesome! You may be interested in the items below</h5>
-                  {{#link-to 'goals'}}
-                    Goals
-                  {{/link-to}}
+                <h5>Awesome! You may be interested in the items below</h5>
+                {{#link-to 'goals'}}
+                  Goals
+                {{/link-to}}
 
-                  {{#link-to 'investment'}}
-                    Investments
-                  {{/link-to}}
+                {{#link-to 'investment'}}
+                  Investments
+                {{/link-to}}
               {{/if}}
+          </div>
+          <div class="mdl-card__actions">
+            {{#mdl-button action="debtDoneAction" isColored=true isRaised=true}}
+            Done with debt items
+          {{/mdl-button}}
           </div>
         </div>
       </section>
