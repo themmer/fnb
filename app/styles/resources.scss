@@ -152,3 +152,11 @@
 .mdl-grid .mdl-menu__container {
     z-index: 99;
 }
+
+.investments {
+    @media (min-width: 840px) {
+        .mdl-cell--3-col, .mdl-cell--3-col-desktop.mdl-cell--3-col-desktop {
+            width: calc(33.33% - 16px);
+        }
+    }
+}

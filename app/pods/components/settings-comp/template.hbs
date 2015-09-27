@@ -7,8 +7,8 @@
 
     <h5>Notification settings</h5>
 
-    {{input type="checkbox" name="hasEmailNotifications" checked=user.hasEmailNotifications}} Text Notifications
-    {{input type="checkbox" name="hasTextNotificaitons" checked=user.hasTextNotificaitons}} Email Notifications
+    {{input type="checkbox" name="hasEmailNotifications" checked=user.settings.hasEmailNotifications}} Text Notifications
+    {{input type="checkbox" name="hasTextNotificaitons" checked=user.settings.hasTextNotificaitons}} Email Notifications
 
     <h5>Frequency of Updates</h5> {{input value=user.settings.frequencyNotification}} (in months)
     </div>
