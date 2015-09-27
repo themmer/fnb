@@ -7,6 +7,7 @@
       <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
           <h4 class="mdl-cell--12-col">Just a Few More Questions</h4>
+            <h5>Monthly Income</h5>
             <p>Do you have a monthly income?</p>
             <form {{action "noop" on="submit"}}>
               {{mdl-radio
@@ -24,9 +25,9 @@
                 value="noIncome"
               }}
             </form>
- 
+
             {{#if user.hasMonthlyIncome}}
-              <p>What is your monthly income?</p>
+              <p>Please enter the total amount below</p>
               <form {{action "noop" on="submit"}}>
                 {{mdl-textfield
                   errorMessage="Please input a number"

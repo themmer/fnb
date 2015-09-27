@@ -5,6 +5,11 @@
         <h4 class="mdl-cell--12-col">Here's How Much You Owe</h4>
 
         {{#if hasDebtListItems}}
+
+          <p>
+            The table below shows the debt items that added during initial setup.  We have organized the debt items based on what should be paid first and a recommendation to pay more if you can.
+            You can also add the recommendations as goals to ensure that you keep track of your progress and money saved.
+          </p>
           <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
             <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
               <thead>
@@ -18,28 +23,38 @@
                 </tr>
               </thead>
               <tbody>
-                {{#each debtList as |row|}}
+                {{#each recommendedDebtList as |row|}}
                   <tr>
                     <td>{{row.name}}</td>
                     <td>${{row.totalAmount}}</td>
                     <td>${{row.monthlyPayment}}</td>
-                    <td>$25</td>
+                    <td>${{row.recommendedPayment}}</td>
+                    <td>${{row.totalSaved}}</td>
                     <td>
-                      <p>{{mdl-slider min=0 max=100 value=57}}</p>
-                    </td>
-                    <td>
-                      {{mdl-checkbox value=row.id action="updateGoal"}}
+                      {{mdl-switch name=row.name action="updateGoal"}}
                     </td>
                   </tr>
                 {{/each}}
               </tbody>
             </table>
-            <p>
-              * We recommend paying off the highest interest rates first on what you owe.
-            </p>
           </div>
+
+          <h4>What to do next?</h4>
+          {{#if hasIncome}}
+            <p>
+              Looks like you have some money left over.  Let's look at some investment options and then setup some goals.
+            </p>
+              <ul>
+                <li>{{#link-to "goals"}}Setup some goals{{/link-to}}</li>
+                <li>{{#link-to "investment"}}Look at investment choices{{/link-to}}</li>
+              </ul>
+          {{/if}}
+
+          {{#if activatedGoals}}
+
+          {{/if}}
         {{else}}
-          <p>Woohoo, no debt.  Perhaps set some Goals.</p>
+          <p>Woohoo, no debt.  Perhaps set some {{link-to "Goals" "goals"}}.</p>
         {{/if}}
       </div>
     </div>
