@@ -6,6 +6,16 @@
     background-color: $light-green !important;
 }
 
+.trending {
+    padding: 8px;
+    color: $light-green;
+}
+
+.page-content .mdl-grid .mdl-card__actions {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .android-card-container {
     margin-bottom: 48px;
 }
