@@ -1,2 +1,9 @@
-{{donut-chart data=(mut income) donutTitle=(mut incomeTitle)}}
-{{pie-chart data=(mut debt)}}
+{{#mdl-card
+  class="mdl-card mdl-cell mdl-cell--12-col"
+  title="Cashflow Overview"}}
+
+  <div class="status-graphs mdl-card__supporting-text">
+    {{donut-chart data=(mut income) donutTitle=(mut incomeTitle)}}
+    {{pie-chart data=(mut debt)}}
+  </div>
+{{/mdl-card}}
