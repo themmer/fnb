@@ -13,4 +13,16 @@
         padding: .09em .5em .25em;
         text-align: center;
     }
+    label.mdl-radio {
+        margin: 0 18px 10px 14px;
+    }
+    .mdl-card__supporting-text p {
+        margin: 20px 0 9px;
+        &:last-child {
+        margin: 5px 0 0;
+        }
+    }
+    .mdl-card__supporting-text .notation {
+        margin-top: 9px;
+    }
 }

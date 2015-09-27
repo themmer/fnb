@@ -1,19 +1,12 @@
 {{#if isIntroDone}}
   <!-- Part 2 of the introduction survey -->
-  <div class="mdl-grid demo-content">
+  <div class="mdl-grid settings demo-content">
     <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
       <div class="mdl-card mdl-cell mdl-cell--12-col">
-        <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
+        <div class="mdl-card__supporting-text">
           <h4 class="mdl-cell--12-col">Tell Us About Yourself</h4>
-
-          <!-- Name, Email, Age, e.t.c -->
-          <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
             <h5>Basic Details</h5>
             {{user-details}}
-          </div>
-
-          <!-- Whether in school, working, or in College -->
-          <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
             <h5>Work Status</h5>
             <form {{action "noop" on="submit"}}>
               {{mdl-radio
@@ -37,7 +30,6 @@
                 text="Career"
                 value="CAREER"}}
             </form>
-          </div>
         </div>
         <div class="mdl-card__actions">
           {{#mdl-button
@@ -52,11 +44,3 @@
     </section>
   </div>
 {{/if}}
-
-
-
-
-
-
-
-
