@@ -32,12 +32,11 @@ export default Ember.Component.extend({
 
 	actions: {
     surveyDoneAction: function() {
-      Ember.set(this, 'user.isSurveyDone', true);
+      this.get('user').set('isSurveyDone', true);
     },
 
     stageInLifeAction: function (val) {
       let value = val.get('value');
-      let checked = val.get('checked');
 
       this.get('user').set('stageInLife', value);
     }

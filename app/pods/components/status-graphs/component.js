@@ -20,7 +20,7 @@ export default Ember.Component.extend({
    @property debt
    @type object
    */
-  debt: computed({
+  debt: computed('session.user', 'session.user.debtList.[]', {
     get() {
       let debtList = this.get('user.debtList');
       let ret;
@@ -28,14 +28,15 @@ export default Ember.Component.extend({
       if (Ember.isArray(debtList)) {
         let goodDebt = debtList.filter((debt) => {
           return debt.type && debt.type !== 'CREDIT';
-        });
+        }).map(debt => debt.totalAmount);
         let badDebt = debtList.filter((debt) => {
           return debt.type && debt.type === 'CREDIT';
-        });
+        }).map(debt => debt.totalAmount);
 
         goodDebt.unshift('Good Dept');
         badDebt.unshift('Bad Dept');
 
+        console.log(goodDebt, badDebt);
         ret = [
           goodDebt,
           badDebt
@@ -58,7 +59,7 @@ export default Ember.Component.extend({
    @property income
    @type object
    */
-  income: computed('session.user', 'user.monthlyIncome', {
+  income: computed('session.user', 'session.user.monthlyIncome', {
     get() {
       // TODO: Tim, you need to add proper available income.
       let monthlyIncome = this.get('user.monthlyIncome');
@@ -70,7 +71,7 @@ export default Ember.Component.extend({
       } else {
         availableIncome = 0;
       }
-
+console.log('availableIncome,usedIncome', availableIncome,usedIncome);
       return [
         ['Available Income', availableIncome],
         ['Used Income', usedIncome]

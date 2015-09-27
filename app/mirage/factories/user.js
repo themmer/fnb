@@ -33,7 +33,7 @@ export default Mirage.Factory.extend({
       interestRate: 12 + i,
       monthlyPayment: 20 + (i * 5),
       name: ['Amex', 'US Bank', 'Capital One'][i],
-      totalAmout: 2000 * i,
+      totalAmount: 2000 * i,
       type: 'CREDIT'
     }];
   },
