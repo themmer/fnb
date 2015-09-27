@@ -1,7 +1,7 @@
 <!-- Start Add new debt items -->
 <h5>Add New Debt</h5>
 <form action="#" {{action "noop" on="submit"}}>
-  <div class="ember-view mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded">
+  <div class="ember-view debt-type mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded">
     {{view "select"
        content=debtTypes
        optionValuePath="content.type"
