@@ -40,7 +40,7 @@ export default DS.Model.extend({
   // DEBTS HERE
   debtList: attr(),
   hasDebt: attr('boolean', {
-    defaultValue: false
+    defaultValue: true
   }),
   /** CREDIT, CAR, STUDENT_LOAN */
   // type: attr('string'),
@@ -63,7 +63,7 @@ export default DS.Model.extend({
     defaultValue: false
   }),
   hasMonthlyIncome: attr('boolean', {
-    defaultValue: false
+    defaultValue: true
   }),
 
   // SETTINGS HERE

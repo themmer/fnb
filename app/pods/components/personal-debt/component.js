@@ -16,11 +16,11 @@ export default Ember.Component.extend({
     }
   }),
 
-	// hasDebtNotChecked: Ember.computed('user.hasDebt', {
- //    get() {
-	// 		return !this.get('user.hasDebt');
-	// 	}
-	// }),
+	hasDebtNotChecked: Ember.computed('user.hasDebt', {
+    get() {
+			return !this.get('user.hasDebt');
+		}
+	}),
   
   actions: {
     hasDebtCheckedAction: function() {

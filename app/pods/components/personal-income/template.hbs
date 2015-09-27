@@ -17,7 +17,7 @@
     <div class="mdl-card__supporting-text">
       <form action="#">
       {{mdl-radio text='Yes' name='hasMonthlyIncome' checked=hasIncomeChecked action='hasIncomeCheckedAction'}}
-      {{#mdl-radio name='hasMonthlyIncome' checked=hasIncomeChecked action='hasIncomeNotCheckedAction'}}
+      {{#mdl-radio name='hasMonthlyIncome' checked=hasIncomeNotChecked action='hasIncomeNotCheckedAction'}}
         No
       {{/mdl-radio}}
       </form>
@@ -40,7 +40,7 @@
   {{else}}
     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
       <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
+        <h2 class="mdl-card__title-text">How much are you willing to spend in a month?</h2>
       </div>
       <div class="mdl-card__supporting-text">
         <form action="#">
