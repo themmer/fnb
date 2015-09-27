@@ -5,7 +5,6 @@ export default Ember.Component.extend({
 
 	 actions: {
     takeTheSurveyAction: function() {
-    	console.log('clicked');
       this.set('isIntroDone', true);
     }
   }

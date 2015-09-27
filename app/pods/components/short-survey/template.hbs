@@ -9,22 +9,6 @@
   </div>
 </div>
 
-	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-	  <div class="mdl-card__title">
-	    <h2 class="mdl-card__title-text">Please tell us about yourself</h2>
-	  </div>
-	  <div class="mdl-card__supporting-text">
-			<form action="#">
-			 	{{mdl-textfield label="Name" value=name isLabelFloating=true}}
-			  {{mdl-textfield label="Age" value=age isLabelFloating=true pattern="[0-9]*" errorMessage="Please input a number"}}
-			  {{mdl-textfield label="Email" value=email isLabelFloating=true}}
-			  {{mdl-textfield label="Phone" value=phone isLabelFloating=true}}
-			</form>
-	  </div>
-	</div>
-
-	<br/>
-
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">Where are you now?</h2>
@@ -44,5 +28,5 @@
 
 	<br/>
 
-	{{#mdl-button isColored=true isRaised=true}}Let's Go!{{/mdl-button}}
+	{{#mdl-button isColored=true isRaised=true action='surveyDoneAction'}}Let's Go!{{/mdl-button}}
 {{/if}}
