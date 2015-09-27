@@ -2,14 +2,12 @@
   {{status-graphs}}
 {{else}}
   <!-- Part 3 of the introduction survey -->
-  <div class="mdl-grid demo-content">
+  <div class="mdl-grid settings demo-content">
     <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
       <div class="mdl-card mdl-cell mdl-cell--12-col">
-        <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
+        <div class="mdl-card__supporting-text">
           <h4 class="mdl-cell--12-col">Just a Few More Questions</h4>
-
-          <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-            <p>Do you have a montly income?</p>
+            <p>Do you have a monthly income?</p>
             <form {{action "noop" on="submit"}}>
               {{mdl-radio
                 action="incomeAction"
@@ -26,9 +24,7 @@
                 value="noIncome"
               }}
             </form>
-          </div>
-
-          <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+ 
             {{#if user.hasMonthlyIncome}}
               <p>What is your monthly income?</p>
               <form {{action "noop" on="submit"}}>
@@ -41,7 +37,7 @@
                 }}
               </form>
               <p>
-                Monthly income may include the following: salary, side jobs.
+                * Monthly income may include the following: salary, side jobs.
               </p>
             {{else}}
               <p>No problem, how much can you spend a month?</p>
@@ -55,10 +51,9 @@
                 }}
               </form>
               <p>
-                This may include stipends or other sources of income.
+                * This may include stipends or other sources of income.
               </p>
             {{/if}}
-          </div>
         </div>
         <div class="mdl-card__actions">
           {{#mdl-button

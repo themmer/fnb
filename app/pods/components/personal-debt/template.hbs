@@ -1,13 +1,12 @@
 {{#if user.isIncomeDone}}
   {{#unless user.isDebtDone}}
-    <div class="mdl-grid demo-content">
+    <div class="mdl-grid settings demo-content">
       <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
         <div class="mdl-card mdl-cell mdl-cell--12-col">
-          <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
+          <div class="mdl-card__supporting-text">
             <h4 class="mdl-cell--12-col">Tell Us About Your Financial Status</h4>
-            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
               <h5>Living expenses</h5>
-              <p>
+              <p class="notation">
                 Living expenses may include food, transport, entertainment, rent, etc.
               </p>
               <form {{action "noop" on="submit"}}>
@@ -20,8 +19,6 @@
                 }}
               </form>
             </div>
-
-            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
               <h5>Do you owe any money?</h5>
               <form {{action "noop" on="submit"}}>
                 {{mdl-radio
@@ -39,14 +36,11 @@
                   value="noDebt"
                 }}
               </form>
-            </div>
 
-            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
               {{#if user.hasDebt}}
                 {{add-debt}}
               {{else}}
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Awesome!  You may be interested in the items below</h5>
+                  <h5>Awesome! You may be interested in the items below</h5>
                   {{#link-to 'goals'}}
                     Goals
                   {{/link-to}}
@@ -54,9 +48,7 @@
                   {{#link-to 'investment'}}
                     Investments
                   {{/link-to}}
-                </div>
               {{/if}}
-            </div>
           </div>
         </div>
       </section>
