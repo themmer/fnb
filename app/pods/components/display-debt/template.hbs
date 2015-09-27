@@ -2,15 +2,14 @@
   <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
       <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
-        <h4 class="mdl-cell--12-col">Here's How Much You Owe</h4>
+        <h5 class="mdl-cell--12-col">Here's How Much You Owe</h5>
 
         {{#if hasDebtListItems}}
 
-          <p>
+          <p class="debt-table">
             The table below shows the debt items that added during initial setup.  We have organized the debt items based on what should be paid first and a recommendation to pay more if you can.
             You can also add the recommendations as goals to ensure that you keep track of your progress and money saved.
           </p>
-          <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
             <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
               <thead>
                 <tr>
@@ -37,14 +36,13 @@
                 {{/each}}
               </tbody>
             </table>
-          </div>
 
-          <h4>What to do next?</h4>
+          <h5>What To Do Next?</h5>
           {{#if hasIncome}}
             <p>
               Looks like you have some money left over.  Let's look at some investment options and then setup some goals.
             </p>
-              <ul>
+              <ul class="debt-goals">
                 <li>{{#link-to "goals"}}Setup some goals{{/link-to}}</li>
                 <li>{{#link-to "investment"}}Look at investment choices{{/link-to}}</li>
               </ul>
@@ -54,7 +52,7 @@
 
           {{/if}}
         {{else}}
-          <p>Woohoo, no debt.  Perhaps set some {{link-to "Goals" "goals"}}.</p>
+          <p>Woohoo, no debt! Perhaps set some {{link-to "Goals" "goals"}}.</p>
         {{/if}}
       </div>
     </div>
