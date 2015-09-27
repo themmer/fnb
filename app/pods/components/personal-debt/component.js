@@ -23,6 +23,10 @@ export default Ember.Component.extend({
 	}),
 
   actions: {
+    debtDoneAction: function() {
+      this.set('user.isDebtDone', true);
+    },
+
     debtAction: function (val) {
       let value = val.get('value');
       let user = this.get('user');
