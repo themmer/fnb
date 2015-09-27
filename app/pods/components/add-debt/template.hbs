@@ -1,4 +1,41 @@
-<h5>How much do you owe each month?</h5>
+<!-- Start Add new debt items -->
+<h5>Add New Debt</h5>
+<form action="#" {{action "noop" on="submit"}}>
+  <div class="ember-view mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded">
+    {{view "select"
+       content=debtTypes
+       optionValuePath="content.type"
+       optionLabelPath="content.name"
+       value=debtType
+       prompt="Please select a debt type"}}
+    <label class="mdl-textfield__label">Debt Type</label>
+  </div>
+  {{mdl-textfield label="Name" value=debtName isLabelFloating=true}}
+  {{mdl-textfield
+    errorMessage="Please input a number"
+    isLabelFloating=true pattern="-?[0-9]*(\.[0-9]+)?"
+    label="Total Amount ($)"
+    value=debtTotalAmount}}
+  {{mdl-textfield
+    isLabelFloating=true
+    label="Monthly Payment ($)"
+    value=debtMonthlyPayment}}
+  {{mdl-textfield
+    isLabelFloating=true
+    label="Interest Rate (%)"
+    value=debtInterestRate}}
+
+  {{mdl-button
+    action="updateDebtList"
+    icon="add"
+    isColored=true
+    isFloating=true
+    isRaised=true }}
+</form>
+<!-- End Add new debt items -->
+
+<!-- Start Add debt item -->
+<h5>Debt List</h5>
 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
   <thead>
     <tr>
@@ -21,34 +58,4 @@
     {{/each}}
   </tbody>
 </table>
-
-<!-- Add new debt items -->
-<h5>Add New Debt</h5>
-<div class="mdl-shadow--2dp">
-  <form action="#" {{action "noop" on="submit"}}>
-    {{view "select"
-       content=debtTypes
-       optionValuePath="content.type"
-       optionLabelPath="content.name"
-       value=debtType
-       prompt="Please select a debt type"}}
-    {{mdl-textfield label="Name" value=debtName isLabelFloating=true}}
-    {{mdl-textfield
-      errorMessage="Please input a number"
-      isLabelFloating=true pattern="-?[0-9]*(\.[0-9]+)?"
-      label="Total Amount ($)"
-      value=debtTotalAmount}}
-    {{mdl-textfield
-      isLabelFloating=true
-      label="Monthly Payment ($)"
-      value=debtMonthlyPayment}}
-    {{mdl-textfield
-      isLabelFloating=true
-      label="Interest Rate (%)"
-      value=debtInterestRate}}
-
-    {{#mdl-button action="updateDebtList" isColored=true isRaised=true}}
-      Add Debt Item
-    {{/mdl-button}}
-  </form>
-</div>
+<!-- End Add debt item -->

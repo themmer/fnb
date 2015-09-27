@@ -131,8 +131,34 @@ export default DS.Model.extend({
       }
 
       return debtList.reduce((previous, current) => {
-        return previous + current.monthlyPayment;
+        return previous + +current.monthlyPayment;
       },0);
+    }
+  }),
+
+  availableIncome: computed('livingExpenses', 'debtList.[]', 'monthlyIncome', {
+    get() {
+      let monthlyIncome = this.get('monthlyIncome');
+      let debtList = this.get('debtList');
+      let livingExpenses = this.get('livingExpenses');
+      let availableIncome = 0;
+      let usedIncome = 0;
+
+      if (!Ember.isEmpty(debtList)) {
+        usedIncome = debtList.reduce((previous, current) => {
+          return previous + current.monthlyPayment;
+        }, 0);
+      }
+
+      if (!Ember.isEmpty(monthlyIncome) && monthlyIncome > 0) {
+        availableIncome = monthlyIncome - usedIncome;
+
+        if (availableIncome > livingExpenses) {
+          availableIncome -= livingExpenses;
+        }
+      }
+
+      return availableIncome;
     }
   })
 });

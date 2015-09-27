@@ -62,16 +62,13 @@ export default Ember.Component.extend({
   income: computed('session.user', 'session.user.monthlyIncome',
     'session.user.livingExpenses', 'session.user.debtList.[]', {
     get() {
-      // TODO: Tim, you need to add proper available income.
       let monthlyIncome = this.get('user.monthlyIncome');
       let debtList = this.get('user.debtList');
       let livingExpenses = this.get('user.livingExpenses');
-      let availableIncome;
-      let usedIncome;
+      let availableIncome = 0;
+      let usedIncome = 0;
 
-      if (Ember.isEmpty(debtList)) {
-        usedIncome = 0;
-      } else {
+      if (!Ember.isEmpty(debtList)) {
         usedIncome = debtList.reduce((previous, current) => {
           return previous + current.monthlyPayment;
         }, 0);
@@ -83,10 +80,8 @@ export default Ember.Component.extend({
         if (availableIncome > livingExpenses) {
           availableIncome -= livingExpenses;
         }
-      } else {
-        availableIncome = 0;
       }
-console.log('availableIncome,usedIncome', availableIncome,usedIncome);
+
       return [
         ['Available Income', availableIncome],
         ['Used Income', usedIncome]
