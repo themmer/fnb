@@ -15,11 +15,11 @@
   </div>
   <div class="mdl-card__supporting-text">
 		<form action="#">
-			{{mdl-radio value="HIGHSCHOOL" text='High School' name='stageInLife' checked=isHighSchoolChecked}}
-			{{#mdl-radio name='stageInLife' value="COLLEGE" checked=isCollegeChecked}}
+			{{mdl-radio value="HIGHSCHOOL" text='High School' name='stageInLife' checked=isHighSchoolChecked action="highSchoolSelected"}}
+			{{#mdl-radio name='stageInLife' value="COLLEGE" checked=isCollegeChecked action='collegeSelected'}}
 			  College
 			{{/mdl-radio}}
-			{{#mdl-radio name='stageInLife' value="CAREER" checked=isCareerChecked}}
+			{{#mdl-radio name='stageInLife' value="CAREER" checked=isCareerChecked action='careerSelected'}}
 			  Career
 			{{/mdl-radio}}
 		</form>

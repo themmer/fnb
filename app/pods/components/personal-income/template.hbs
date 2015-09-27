@@ -16,38 +16,39 @@
     </div>
     <div class="mdl-card__supporting-text">
       <form action="#">
-      {{mdl-radio value="HIGHSCHOOL" text='Yes' name='hasMonthlyIncome'}}
-      {{#mdl-radio name='hasMonthlyIncome' value=hasMonthlyIncome}}
+      {{mdl-radio text='Yes' name='hasMonthlyIncome' checked=hasIncomeChecked action='hasIncomeCheckedAction'}}
+      {{#mdl-radio name='hasMonthlyIncome' checked=hasIncomeChecked action='hasIncomeNotCheckedAction'}}
         No
       {{/mdl-radio}}
       </form>
     </div>
   </div>
 
-  ** if yes and there is a note about conditional for life stages **
-  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
+  {{#if user.hasMonthlyIncome}}
+    ** there is a note about conditional for life stages **
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form action="#">
+          {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input a number"}}
+        </form>
+        Info box: Monthly income may include the following: salary, side jobs
+      </div>
     </div>
-    <div class="mdl-card__supporting-text">
-      <form action="#">
-        {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input a number"}}
-      </form>
-      Info box: Monthly income may include the following: salary, side jobs
+  {{else}}
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form action="#">
+          {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input an amount"}}
+        </form>
+      </div>
     </div>
-  </div>
-
-  ** if no **
-  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      <form action="#">
-        {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input an amount"}}
-      </form>
-    </div>
-  </div>
+  {{/if}}
 
   <br/>
   {{#mdl-button isColored=true isRaised=true action='incomeDoneAction'}}Let's Get Started{{/mdl-button}}

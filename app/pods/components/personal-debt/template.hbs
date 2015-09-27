@@ -21,29 +21,26 @@
       </div>
       <div class="mdl-card__supporting-text">
         <form action="#">
-          {{mdl-radio value=hasDebt text='Yes' name='hasDebt'}}
-          {{#mdl-radio name='hasDebt' value=user.hasMonthlyIncome}}
+          {{mdl-radio value=hasDebt text='Yes' name='hasDebt' checked=hasDebtChecked action='hasDebtCheckedAction'}}
+          {{#mdl-radio name='hasDebt' checked=hasDebtChecked action='hasDebtNotCheckedAction'}}
             No
           {{/mdl-radio}}
         </form>
       </div>
     </div>
 
-    ** if yes from above **
-    {{add-debt}}
-
-    ** if no from above **
-
-    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__supporting-text">
-        Please see {{#mdl-button isColored=true isRaised=true action='goToInvestments'}}Investments{{/mdl-button}} or {{#mdl-button isColored=true isRaised=true action='goToGoals'}}Goals{{/mdl-button}}
+    {{#if user.hasDebt}}
+      {{add-debt}}
+    {{else}}
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text">
+          Please see {{#mdl-button isColored=true isRaised=true action='goToInvestments'}}Investments{{/mdl-button}} or {{#mdl-button isColored=true isRaised=true action='goToGoals'}}Goals{{/mdl-button}}
+        </div>
       </div>
-    </div>
-
-
-
+    {{/if}}
   {{/unless}}
   {{#if user.isDebtDone}}
     {{display-debt}}
   {{/if}}
+
 {{/if}}

@@ -32,7 +32,16 @@ export default Ember.Component.extend({
 
 	actions: {
     surveyDoneAction: function() {
-      this.set('user.isSurveyDone', true);
-    }
+      Ember.set(this, 'user.isSurveyDone', true);
+    },
+    careerSelected: function() {
+      Ember.set(this, 'user.stageInLife', 'CAREER');
+    },
+    highSchoolSelected: function() {
+      Ember.set(this, 'user.stageInLife', 'HIGHSCHOOL');
+    },
+    collegeSelected: function() {
+      Ember.set(this, 'user.stageInLife', 'COLLEGE');
+    },
   }
 });
