@@ -10,19 +10,19 @@ export default Ember.Component.extend({
    */
   user: Ember.computed.alias('session.user'),
 
-  isCareerChecked: Ember.computed('user.stageInLife', {
+  isCareerChecked: Ember.computed({
     get() {
 			return 'CAREER' === this.get('user.stageInLife');
     }
   }),
 
-	isCollegeChecked: Ember.computed('user.stageInLife', {
+	isCollegeChecked: Ember.computed({
     get() {
 			return 'COLLEGE' === this.get('user.stageInLife');
 		}
 	}),
 
-	isHighSchoolChecked: Ember.computed('user.stageInLife', {
+	isHighSchoolChecked: Ember.computed({
     get() {
     	return 'HIGHSCHOOL' === this.get('user.stageInLife');
     }
@@ -34,14 +34,12 @@ export default Ember.Component.extend({
     surveyDoneAction: function() {
       Ember.set(this, 'user.isSurveyDone', true);
     },
-    careerSelected: function() {
-      Ember.set(this, 'user.stageInLife', 'CAREER');
-    },
-    highSchoolSelected: function() {
-      Ember.set(this, 'user.stageInLife', 'HIGHSCHOOL');
-    },
-    collegeSelected: function() {
-      Ember.set(this, 'user.stageInLife', 'COLLEGE');
-    },
+
+    stageInLifeAction: function (val) {
+      let value = val.get('value');
+      let checked = val.get('checked');
+
+      this.get('user').set('stageInLife', value);
+    }
   }
 });
