@@ -6,7 +6,6 @@ export default function() {
    Get's a list of users for presentation purposes.
    */
   this.get('/users', function(db, request) {
-    console.log('query params => ', request.queryParams);
     return {users: db['users'].where(request.queryParams)};
   });
 
@@ -20,6 +19,10 @@ export default function() {
    */
   this.put('/users/:id');
 
+  /**
+   Add a single user.
+   */
+  this.post('/users');
   // These comments are here to help you get started. Feel free to delete them.
 
   /*

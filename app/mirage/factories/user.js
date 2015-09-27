@@ -27,5 +27,14 @@ export default Mirage.Factory.extend({
   },
   monthlyIncome(i) {
     return 1000 * i;
+  },
+  debtList(i) {
+    return [{
+      interestRate: 12 + i,
+      monthlyPayment: 20 + (i * 5),
+      name: ['Amex', 'US Bank', 'Capital One', 'Chase', 'Discover'][i],
+      totalAmout: 2000 * i,
+      type: 'CREDIT'
+    }]
   }
 });
