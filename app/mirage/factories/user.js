@@ -28,6 +28,9 @@ export default Mirage.Factory.extend({
   monthlyIncome(i) {
     return 1000 * i;
   },
+  usedIncome(i) {
+    return 0;
+  },
   debtList(i) {
     return [{
       interestRate: 12 + i,

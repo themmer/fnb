@@ -73,22 +73,24 @@ export default Ember.Component.extend({
     if (graph) {
       // Perhaps we can unload data if we find it necessary
       // graph.unload();
-      graph.load(_this.getFormattedData(data));
+      graph.load({
+        columns: _this.getFormattedData(data)
+      });
     } else {
       graph = c3.generate({
-        bindto: '#' + elementId,
+        bindto: `#${elementId}`,
         data: {
           x: 'x',
           columns: _this.getFormattedData(data)
         },
-        axis: {
-          x: {
-            type: 'timeseries',
-            tick: {
-              format: '%Y'
-            }
-          }
-        },
+        // axis: {
+        //   x: {
+        //     type: 'timeseries',
+        //     tick: {
+        //       format: '%Y'
+        //     }
+        //   }
+        // },
         transition: {
           duration: 300
         }

@@ -9,7 +9,7 @@ export default DS.Model.extend({
 
   // User attributes acquired via the short survey
   name: attr('string'),
-  age: attr('number'),
+  age: attr('number', {defaultValue: 0}),
   email: attr('string'),
   phone: attr('string'),
 
@@ -18,7 +18,7 @@ export default DS.Model.extend({
     defaultValue: 'HIGHSCHOOL'
   }),
 
-  monthlyIncome: attr('number'),
+  monthlyIncome: attr('number', {defaultValue: 0}),
   monthlyCash: attr('number'),
 
   // .25 percent of income by default
