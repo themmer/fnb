@@ -41,13 +41,11 @@
                 {{add-debt}}
               {{else}}
                 <h5>Awesome, no debt! You may be interested in the items below</h5>
-                {{#link-to 'goals'}}
-                  Goals
-                {{/link-to}}
 
-                {{#link-to 'investment'}}
-                  Investments
-                {{/link-to}}
+                <p>Great job at being debt free.  At this point, you can continue to explore {{link-to "investments" "investment"}} and {{link-to "goals" "goals"}}.</p>
+
+                <!-- Ran out of time to implement this option -->
+                <p>You can also <a href="#">chat</a> with an investment advisor at any point.</p>
               {{/if}}
           </div>
           <div class="mdl-card__actions">

@@ -5,31 +5,34 @@
       <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
           <h4 class="mdl-cell--12-col">Tell Us About Yourself</h4>
-            <h5>Personal Details</h5>
-            {{user-details}}
-            <h5>Life Stage</h5>
-            <form {{action "noop" on="submit"}}>
-              {{mdl-radio
-                action="stageInLifeAction"
-                checked=isHighSchoolChecked
-                name="stageInLife"
-                text="High School"
-                value="HIGHSCHOOL"}}
+          <h5>Personal Details</h5>
+          {{user-details}}
+          <h5>Life Stage</h5>
+          <form {{action "noop" on="submit"}}>
+            {{mdl-radio
+              action="stageInLifeAction"
+              checked=isHighSchoolChecked
+              name="stageInLife"
+              text="High School"
+              value="HIGHSCHOOL"}}
 
-              {{mdl-radio
-                action="stageInLifeAction"
-                checked=isCollegeChecked
-                name="stageInLife"
-                text="College"
-                value="COLLEGE"}}
+            {{mdl-radio
+              action="stageInLifeAction"
+              checked=isCollegeChecked
+              name="stageInLife"
+              text="College"
+              value="COLLEGE"}}
 
-              {{mdl-radio
-                action="stageInLifeAction"
-                checked=isCareerChecked
-                name="stageInLife"
-                text="Career"
-                value="CAREER"}}
-            </form>
+            {{mdl-radio
+              action="stageInLifeAction"
+              checked=isCareerChecked
+              name="stageInLife"
+              text="Career"
+              value="CAREER"}}
+          </form>
+          <p>
+            We collect this information to tailor the application to information that is relavant for you.
+          </p>
         </div>
         <div class="mdl-card__actions">
           {{#mdl-button
