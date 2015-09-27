@@ -43,29 +43,3 @@
     padding-bottom: 0;
     margin-bottom: 0;
 }
-
-.mdl-demo section .section__circle-container > .section__circle-container__circle {
-    width: 64px;
-    height: 64px;
-    border-radius: 32px;
-    margin: 8px 0;
-}
-
-.mdl-demo section .section__text h5 {
-    font-size: inherit;
-    margin: 0;
-    margin-bottom: 0.5em;
-}
-
-.mdl-demo section.section--center .section__text:not(:last-child) {
-    border-bottom: 1px solid rgba(0, 0, 0, .13);
-}
-
-.mdl-demo section .section__text a {
-    text-decoration: none;
-}
-
-.android-link {
-    text-decoration: none;
-    color: $olive-green !important;
-}
