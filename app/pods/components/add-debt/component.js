@@ -4,7 +4,7 @@ let computed = Ember.computed;
 let alias = computed.alias;
 
 export default Ember.Component.extend({
-		/**
+	/**
    The currently active user
 
    @private
@@ -52,6 +52,12 @@ export default Ember.Component.extend({
         totalAmount: this.get('debtTotalAmount'),
         type: this.get('debtType')
       };
+
+      // We could validate further however, in the interest of time,
+      // only validating a few props
+      if (Ember.isEmpty(debt.name) || debt.totalAmount <= 0) {
+        return;
+      }
 
       if (debtList) {
         user.get('debtList').pushObject(debt);

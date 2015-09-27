@@ -1,13 +1,13 @@
 {{#if isIntroDone}}
-  <!-- Part 2 of the introduction survey -->
+  <!-- Gather user details e.g. name, age, work status -->
   <div class="mdl-grid settings demo-content">
     <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
       <div class="mdl-card mdl-cell mdl-cell--12-col">
         <div class="mdl-card__supporting-text">
           <h4 class="mdl-cell--12-col">Tell Us About Yourself</h4>
-            <h5>Basic Details</h5>
+            <h5>Personal Details</h5>
             {{user-details}}
-            <h5>Work Status</h5>
+            <h5>Life Stage</h5>
             <form {{action "noop" on="submit"}}>
               {{mdl-radio
                 action="stageInLifeAction"
@@ -37,7 +37,7 @@
             isColored=true
             isRaised=true
           }}
-            Let's Go!
+            Next
           {{/mdl-button}}
         </div>
       </div>

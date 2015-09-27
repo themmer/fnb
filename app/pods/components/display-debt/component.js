@@ -15,6 +15,14 @@ export default Ember.Component.extend({
    */
   isAddingDebt: false,
 
+  hasDebtListItems: computed('user.debtList.[]', {
+    get() {
+      let debtList = this.get('user.debtList');
+
+      return !Ember.isEmpty(debtList) && debtList.length;
+    }
+  }),
+
   debtList: computed('user.debtList.[]', {
     get() {
       let debtList = this.get('user.debtList');
@@ -37,6 +45,10 @@ export default Ember.Component.extend({
   selectedGoals: [],
 
   actions: {
-    noop: function() {}
+    noop: function() {},
+
+    updateGoal: function() {
+
+    }
   }
 });
