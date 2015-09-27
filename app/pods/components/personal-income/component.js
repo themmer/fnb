@@ -16,11 +16,11 @@ export default Ember.Component.extend({
     }
   }),
 
-  // hasIncomeNotChecked: Ember.computed('user.hasMonthlyIncome', {
-  //   get() {
-  //     return !this.get('user.hasMonthlyIncome');
-  //   }
-  // }),
+  hasIncomeNotChecked: Ember.computed('user.hasMonthlyIncome', {
+    get() {
+      return true !== this.get('user.hasMonthlyIncome');
+    }
+  }),
 
 	actions: {
     incomeDoneAction: function() {
