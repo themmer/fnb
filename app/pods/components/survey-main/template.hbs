@@ -1,3 +1,5 @@
-{{survey-intro}}
+{{#unless user.isSurveyDone}}
+	{{survey-intro isIntroDone=isIntroDone}}
 
-{{short-survey}}
+	{{short-survey isIntroDone=isIntroDone}}
+{{/unless}}

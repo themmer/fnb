@@ -21,4 +21,7 @@ export default Ember.Component.extend({
 	isHighSchoolChecked: function() {
 		return "HIGHSCHOOL" === user.stageInLife;
 	}
+
+	isIntroDone: null,
+
 });
