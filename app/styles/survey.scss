@@ -1,3 +1,29 @@
+// Buttons
+.mdl-button--raised.mdl-button--colored {
+    background: $green;
+    color: $white;
+    &:hover {
+        background: $olive-green;
+    }
+}
+
+.demo-card-square.mdl-card {
+    width: 320px;
+    height: 280px;
+    margin: 0 auto 30px;
+}
+
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    background: url('/img/survey-img.png') bottom right 15% no-repeat #46B6AC;
+}
+
+.mdl-grid {
+    button {
+        margin: 0 auto;
+    }
+}
+
 // 2 Card Group
 .card-group-2up {
     padding: 0 40px 40px;
