@@ -33,10 +33,9 @@ export default Ember.Component.extend({
           return debt.type && debt.type === 'CREDIT';
         }).map(debt => debt.monthlyPayment);
 
-        goodDebt.unshift('Good Dept');
-        badDebt.unshift('Bad Dept');
+        goodDebt.unshift('Good Debt');
+        badDebt.unshift('Bad Debt');
 
-        console.log(goodDebt, badDebt);
         ret = [
           goodDebt,
           badDebt
