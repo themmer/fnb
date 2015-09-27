@@ -1,0 +1,71 @@
+// 2 Card Group
+.card-group-2up {
+    padding: 0 40px 40px;
+    margin: 0 auto;
+    align-items: center;
+    .tps-card-square {
+        display: table-row;
+    }
+    .tps-card-wide,
+    .tps-card-square,
+    .tps-card-auto {
+        display: inline-block;
+        text-align: left;
+    }
+    .tps-card-auto.mdl-card {
+        margin-right: 40px;
+    }
+    .mdl-card__title-text {
+        font-size: 28px;
+    }
+}
+
+// Wide Card
+.tps-card-wide.mdl-card {
+    width: 512px;
+}
+
+// Square Card
+.tps-card-square.mdl-card {
+    width: 320px;
+    min-height: 360px;
+}
+
+.tps-card-square > .mdl-card__title,
+.tps-card-auto > .mdl-card__title,
+.green-title {
+    color: $dark-green;
+    background: $light-green;
+}
+
+.mdl-card__supporting-text p {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.mdl-demo section .section__circle-container > .section__circle-container__circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    margin: 8px 0;
+}
+
+.mdl-demo section .section__text h5 {
+    font-size: inherit;
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+
+.mdl-demo section.section--center .section__text:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, .13);
+}
+
+.mdl-demo section .section__text a {
+    text-decoration: none;
+}
+
+.android-link {
+    text-decoration: none;
+    color: $olive-green !important;
+}
