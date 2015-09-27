@@ -3,12 +3,7 @@
     <h2 class="mdl-card__title-text">Please tell us about yourself</h2>
   </div>
   <div class="mdl-card__supporting-text">
-		<form action="#">
-		 	{{mdl-textfield label="Name" value=name isLabelFloating=true}}
-		  {{mdl-textfield label="Age" value=age isLabelFloating=true pattern="[0-9]*" errorMessage="Please input a number"}}
-		  {{mdl-textfield label="Email" value=email isLabelFloating=true}}
-		  {{mdl-textfield label="Phone" value=phone isLabelFloating=true}}
-		</form>
+  	{{user-details}}
   </div>
 </div>
 
@@ -20,11 +15,11 @@
   </div>
   <div class="mdl-card__supporting-text">
 		<form action="#">
-			{{mdl-radio value="HIGHSCHOOL" text='High School' name='life'}}
-			{{#mdl-radio name='life' value="COLLEGE"}}
+			{{mdl-radio value="HIGHSCHOOL" text='High School' name='stageInLife' checked=isHighSchoolChecked}}
+			{{#mdl-radio name='stageInLife' value="COLLEGE" checked=isCollegeChecked}}
 			  College
 			{{/mdl-radio}}
-			{{#mdl-radio name='life' value="CAREER"}}
+			{{#mdl-radio name='stageInLife' value="CAREER" checked=isCareerChecked}}
 			  Career
 			{{/mdl-radio}}
 		</form>

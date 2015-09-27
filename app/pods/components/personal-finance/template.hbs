@@ -2,7 +2,7 @@ Personal Finance Component
 
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">Hi **NAME**</h2>
+    <h2 class="mdl-card__title-text">Hi {{user.name}}</h2>
   </div>
   <div class="mdl-card__supporting-text">
 		We are almost there. Before we being we need a couple of details
@@ -76,7 +76,7 @@ Personal Finance Component
   <div class="mdl-card__supporting-text">
     <form action="#">
       {{mdl-radio value=hasDebt text='Yes' name='hasDebt'}}
-      {{#mdl-radio name='hasDebt' value=hasMonthlyIncome}}
+      {{#mdl-radio name='hasDebt' value=user.hasMonthlyIncome}}
         No
       {{/mdl-radio}}
     </form>
