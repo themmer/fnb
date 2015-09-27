@@ -10,7 +10,7 @@
 .demo-card-square.mdl-card {
     width: 320px;
     height: 280px;
-    margin: 0 auto 30px;
+    margin: 30px auto;
 }
 
 .demo-card-square > .mdl-card__title {
@@ -22,6 +22,17 @@
     button {
         margin: 0 auto;
     }
+}
+
+.mdl-grid .mdl-card .mdl-card__supporting-text {
+    margin: 40px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding: 0;
+    color: inherit;
+    width: calc(100% - 80px);
 }
 
 // 2 Card Group

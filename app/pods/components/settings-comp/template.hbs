@@ -1,13 +1,20 @@
-Settings comp
+<div class="mdl-grid settings demo-content">
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
+    <div class="mdl-card__supporting-text">
+    <h4 class="mdl-cell--12-col">Settings</h4>
+    {{user-details}}
 
--- User Details
+    <h5>Notification settings</h5>
 
-** need to make the edit user details a component **
-{{user-details}}
+    {{input type="checkbox" name="hasEmailNotifications" checked=user.hasEmailNotifications}} Text Notifications
+    {{input type="checkbox" name="hasTextNotificaitons" checked=user.hasTextNotificaitons}} Email Notifications
 
--- Notifications
-
-{{input type="checkbox" name="hasEmailNotifications" checked=user.hasEmailNotifications}} Text Notifications
-{{input type="checkbox" name="hasTextNotificaitons" checked=user.hasTextNotificaitons}} Email Notifications
-
-Frequency of Updates {{input value=user.settings.frequencyNotification}} (in months)
+    <h5>Frequency of Updates</h5> {{input value=user.settings.frequencyNotification}} (in months)
+    </div>
+    <!-- <div class="mdl-card__actions">
+        <a href="#" class="mdl-button">Submit</a>
+    </div> -->
+    </div>
+    </section>
+</div>
