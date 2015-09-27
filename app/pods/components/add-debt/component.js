@@ -18,7 +18,7 @@ export default Ember.Component.extend({
       let debtList = this.get('user.debtList');
 
       if (Ember.isArray(debtList)) {
-        return debtList.sort((a, b) => b - a);
+        return debtList.sort((a, b) => b.interestRate - a.interestRate);
       }
 
       return [];

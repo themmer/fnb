@@ -10,24 +10,28 @@ export default Ember.Component.extend({
    */
   user: Ember.computed.alias('session.user'),
 
-	hasDebtChecked: Ember.computed('user.hasDebt', {
+	hasDebt: Ember.computed({
     get() {
 			return this.get('user.hasDebt');
     }
   }),
 
-	hasDebtNotChecked: Ember.computed('user.hasDebt', {
+	noDebt: Ember.computed({
     get() {
 			return !this.get('user.hasDebt');
 		}
 	}),
-  
+
   actions: {
-    hasDebtCheckedAction: function() {
-      Ember.set(this, 'user.hasDebt', true);
-    },
-    hasDebtNotCheckedAction: function() {
-      Ember.set(this, 'user.hasDebt', false);
+    debtAction: function (val) {
+      let value = val.get('value');
+      let user = this.get('user');
+
+      if (value === 'hasDebt') {
+        user.set('hasDebt', true);
+      } else {
+        user.set('hasDebt', false);
+      }
     }
   }
 });
