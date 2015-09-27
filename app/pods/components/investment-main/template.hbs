@@ -1,75 +1,56 @@
 {{#if user.isSurveyDone}}
-	{{status-graphs}}
-
-<div class="mdl-grid demo-content">
-  <div class="android-card-container mdl-grid">
-
-    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-      <div class="mdl-card__title">
-        <h4 class="mdl-card__title-text">Highly Recommended</h4>
-      </div>
-      <div class="mdl-card__supporting-text">
-        <div class="mdl-typography--font-light mdl-typography--subhead">
-        	
-        	<!-- IRA -->
-        	<h4>IRA</h4>
-        	<div>An IRA is an individual retirement arrangement, a retirement plan that gives you tax advantages when saving for retirement. There are two types of IRAs:</div>
-
-					<h5>Roth IRA</h5>
-						<div>A Roth IRA is a retirement savings account that allows your money to grow tax-free. You fund a Roth with after-tax dollars, meaning you've already paid taxes on the money you put into it. In return for no up-front tax break, your money grows and grows tax free, and when you withdraw at retirement, you pay no taxes.</div>
-
-        	<h5>401 k</h5>
-						<div>Contribution is typically tax-deductible, but the money you pull out at retirement will be taxed at the then-current rate.</div>
-
-					<br/>
-
-					<!-- COLLEGE -->
-					<h4>College Savings Plan</h4>
-
-					<div>
-						State-sponsored tax deferred account that allows you to sock away money for college. The money may be used at any school you choose and for all qualified higher education expenses, including room and board. Each state determines what the lifetime contribution limit or account balance cap will be in the plan.
-					</div>
-
-					<br/>
-
-					<!-- Short Term Savings -->
-					<h4>Short-Term Savings Plan</h4>
-
-					<div>
-						Most financial experts recommend that you set aside an emergency fund of three to six months' worth of living expenses before you start saving for other goal.
-					</div>
-
-
+  {{status-graphs}}
+  <div class="mdl-grid demo-content">
+    <div class="android-card-container mdl-grid">
+      <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+        <div class="mdl-card__title">
+          <h4 class="mdl-card__title-text">Highly Recommended</h4>
         </div>
-{{!--         <div class="mdl-typography--font-light mdl-typography--subhead">Savings Account</div> --}}
-      </div>
-      <div class="mdl-card__actions">
-        <a class="mdl-button mdl-js-button">
-	         Learn More
-	         <i class="material-icons">chevron_right</i>
-	       </a>
-      </div>
-    </div>
-
-    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
-      <div class="mdl-card__title">
-        <h4 class="mdl-card__title-text">Other Options</h4>
-      </div>
-      <div class="mdl-card__supporting-text">
-        <span class="mdl-typography--font-light mdl-typography--subhead">Some copy on stocks.</span>
-      </div>
-      <div class="mdl-card__actions">
-        <a class="mdl-button mdl-js-button">
+        <div class="mdl-card__supporting-text">
+          <div class="mdl-typography--font-light mdl-typography--subhead">
+            <!-- IRA -->
+            <h4>IRA</h4>
+            <div>An IRA is an individual retirement arrangement, a retirement plan that gives you tax advantages when saving for retirement. There are two types of IRAs:</div>
+            <h5>Roth IRA</h5>
+            <div>A Roth IRA is a retirement savings account that allows your money to grow tax-free. You fund a Roth with after-tax dollars, meaning you've already paid taxes on the money you put into it. In return for no up-front tax break, your money grows and grows tax free, and when you withdraw at retirement, you pay no taxes.</div>
+            <h5>401(k)</h5>
+            <div>Contribution is typically tax-deductible, but the money you pull out at retirement will be taxed at the then-current rate.</div>
+          </div>
+        </div>
+        <div class="mdl-card__actions">
+          <a class="mdl-button mdl-js-button">
            Learn More
            <i class="material-icons">chevron_right</i>
          </a>
+        </div>
       </div>
+      <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+        <div class="mdl-card__title">
+          <h4 class="mdl-card__title-text">Other Options</h4>
+        </div>
+        <div class="mdl-card__supporting-text">
+          <div class="mdl-typography--font-light mdl-typography--subhead">
+            <!-- COLLEGE -->
+            <h5>College Savings Plan</h5>
+            <div>
+              State-sponsored tax deferred account that allows you to sock away money for college. The money may be used at any school you choose and for all qualified higher education expenses, including room and board. Each state determines what the lifetime contribution limit or account balance cap will be in the plan.
+            </div>
+            <!-- Short Term Savings -->
+            <h5>Short-Term Savings Plan</h5>
+            <div>
+              Most financial experts recommend that you set aside an emergency fund of three to six months' worth of living expenses before you start saving for other goal.
+            </div>
+          </div>
+        </div>
+        <div class="mdl-card__actions">
+          <a class="mdl-button mdl-js-button">
+           Learn More
+           <i class="material-icons">chevron_right</i>
+         </a>
+        </div>
+      </div>
+      {{chat-comp}}
     </div>
-
-    {{chat-comp}} 
-
   </div>
-</div>
-
-{{investments-graph}}
+  {{investments-graph}}
 {{/if}}
