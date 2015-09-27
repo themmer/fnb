@@ -2,49 +2,45 @@
   <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
     <div class="mdl-card mdl-cell mdl-cell--12-col">
       <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
-        <h4 class="mdl-cell--12-col">How Much You Owe</h4>
-        <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-            <thead>
-              <tr>
-                <th class="mdl-data-table__cell--non-numeric">Name</th>
-                <th>Total Amount</th>
-                <th>Monthly Payment</th>
-                <th>Recommended Payment</th>
-                <th>You Save</th>
-                <th>Add Goal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each debtList as |row|}}
+        <h4 class="mdl-cell--12-col">Here's How Much You Owe</h4>
+
+        {{#if hasDebtListItems}}
+          <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+              <thead>
                 <tr>
-                  <td>{{row.name}}</td>
-                  <td>${{row.totalAmount}}</td>
-                  <td>${{row.monthlyPayment}}</td>
-                  <td>$25</td>
-                  <td>
-                    <p>{{mdl-slider min=0 max=100 value=57}}</p>
-                  </td>
-                  <td>
-                    {{mdl-checkbox value=row.id action="updateGoal"}}
-                  </td>
+                  <th class="mdl-data-table__cell--non-numeric">Name</th>
+                  <th>Total Amount ($)</th>
+                  <th>Monthly Payment ($)</th>
+                  <th>Recommended Payment ($)</th>
+                  <th>You Save ($)</th>
+                  <th>Add Goal</th>
                 </tr>
-              {{/each}}
-            </tbody>
-          </table>
-          <p>
-            * We recommend paying off the highest interest rates first on what you owe.
-          </p>
-        </div>
-      </div>
-      <div class="mdl-card__actions">
-        {{#mdl-button
-          action="addAllGoals"
-          isColored=true
-          isRaised=true
-        }}
-          Add All Goals
-        {{/mdl-button}}
+              </thead>
+              <tbody>
+                {{#each debtList as |row|}}
+                  <tr>
+                    <td>{{row.name}}</td>
+                    <td>${{row.totalAmount}}</td>
+                    <td>${{row.monthlyPayment}}</td>
+                    <td>$25</td>
+                    <td>
+                      <p>{{mdl-slider min=0 max=100 value=57}}</p>
+                    </td>
+                    <td>
+                      {{mdl-checkbox value=row.id action="updateGoal"}}
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+            <p>
+              * We recommend paying off the highest interest rates first on what you owe.
+            </p>
+          </div>
+        {{else}}
+          <p>Woohoo, no debt.  Perhaps set some Goals.</p>
+        {{/if}}
       </div>
     </div>
   </section>

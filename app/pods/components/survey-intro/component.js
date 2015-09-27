@@ -1,12 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	isIntroDone: null,
+  /**
+    Whether the intro survey has started.
 
-	 actions: {
+    @private
+    @property isIntroDone
+    @type Boolean
+    */
+  isIntroDone: false,
+
+  actions: {
     takeTheSurveyAction: function() {
       this.set('isIntroDone', true);
     }
   }
-
 });
