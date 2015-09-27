@@ -74,7 +74,7 @@ export default Ember.Component.extend({
       graph.load(_this.getFormattedData(data));
     } else {
       graph = c3.generate({
-        bindto: '#' + elementId,
+        bindto: `#${elementId}`,
         data: {
           columns: _this.getFormattedData(data),
           type: 'donut'
@@ -105,8 +105,7 @@ export default Ember.Component.extend({
    @method
    */
   _willDestroyElement: Ember.on('willDestroyElement', function() {
-    let graph = this.get('graphInstance');
-
-    graph = graph.destroy();
+    // let graph = this.get('graphInstance');
+    // graph = graph.destroy();
   })
 });
