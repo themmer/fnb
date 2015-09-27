@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 let computed = Ember.computed;
+let alias = computed.alias;
 
 export default Ember.Component.extend({
   /**
@@ -10,7 +11,7 @@ export default Ember.Component.extend({
    @property user
    @type Object
    */
-  user: ('session.user'),
+  user: alias('session.user'),
 
   /**
    Available income
@@ -25,7 +26,7 @@ export default Ember.Component.extend({
       return [
         ['Good Debt', 300],
         ['Bad Debt', 500]
-      ]
+      ];
     }
   }),
 
@@ -36,18 +37,47 @@ export default Ember.Component.extend({
    @property income
    @type object
    */
-  income: computed('user.monthlyIncome', {
+  income: computed('session.user', 'user.monthlyIncome', {
     get() {
-
       // TODO: Tim, you need to add proper available income.
       let monthlyIncome = this.get('user.monthlyIncome');
-      let usedIncome = this.get('user.availableIncome') || 100;
-      let availableIncome = monthlyIncome - usedIncome;
+      let usedIncome = this.get('user.availableIncome') || 0;
+      let availableIncome;
+
+      if (!Ember.isEmpty(monthlyIncome) && monthlyIncome > 0) {
+        availableIncome = monthlyIncome - usedIncome;
+      } else {
+        availableIncome = 0;
+      }
 
       return [
         ['Available Income', availableIncome],
         ['Used Income', usedIncome]
-      ]
-    }
+      ];
+    },
+
+    /**
+     Income title
+
+     @private
+     @property incomeTitle
+     @type String
+     */
+    incomeTitle: computed('session.user', 'user.monthlyIncome', {
+      get() {
+        // TODO: Tim, you need to add proper available income.
+        let monthlyIncome = this.get('user.monthlyIncome');
+        let usedIncome = this.get('user.availableIncome') || 0;
+        let availableIncome;
+
+        if (!Ember.isEmpty(monthlyIncome) && monthlyIncome > 0) {
+          availableIncome = monthlyIncome - usedIncome;
+        } else {
+          availableIncome = 0;
+        }
+
+        return availableIncome;
+      }
+    })
   })
 });
