@@ -90,9 +90,6 @@ export default Ember.Component.extend({
           columns: _this.getFormattedData(data),
           type: 'donut'
         },
-        donut: {
-          title: _this.get('donutTitle')
-        },
         transition: {
           duration: 300
         }

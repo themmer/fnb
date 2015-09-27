@@ -28,10 +28,10 @@ export default Ember.Component.extend({
       if (Ember.isArray(debtList)) {
         let goodDebt = debtList.filter((debt) => {
           return debt.type && debt.type !== 'CREDIT';
-        }).map(debt => debt.totalAmount);
+        }).map(debt => debt.monthlyPayment);
         let badDebt = debtList.filter((debt) => {
           return debt.type && debt.type === 'CREDIT';
-        }).map(debt => debt.totalAmount);
+        }).map(debt => debt.monthlyPayment);
 
         goodDebt.unshift('Good Dept');
         badDebt.unshift('Bad Dept');
@@ -59,15 +59,30 @@ export default Ember.Component.extend({
    @property income
    @type object
    */
-  income: computed('session.user', 'session.user.monthlyIncome', {
+  income: computed('session.user', 'session.user.monthlyIncome',
+    'session.user.livingExpenses', 'session.user.debtList.[]', {
     get() {
       // TODO: Tim, you need to add proper available income.
       let monthlyIncome = this.get('user.monthlyIncome');
-      let usedIncome = this.get('user.availableIncome') || 0;
+      let debtList = this.get('user.debtList');
+      let livingExpenses = this.get('user.livingExpenses');
       let availableIncome;
+      let usedIncome;
+
+      if (Ember.isEmpty(debtList)) {
+        usedIncome = 0;
+      } else {
+        usedIncome = debtList.reduce((previous, current) => {
+          return previous + current.monthlyPayment;
+        }, 0);
+      }
 
       if (!Ember.isEmpty(monthlyIncome) && monthlyIncome > 0) {
         availableIncome = monthlyIncome - usedIncome;
+
+        if (availableIncome > livingExpenses) {
+          availableIncome -= livingExpenses;
+        }
       } else {
         availableIncome = 0;
       }
@@ -85,7 +100,8 @@ console.log('availableIncome,usedIncome', availableIncome,usedIncome);
      @property incomeTitle
      @type String
      */
-    incomeTitle: computed('session.user', 'user.monthlyIncome', {
+    incomeTitle: computed('session.user', 'session.user.monthlyIncome',
+    'session.user.livingExpenses', 'session.user.debtList.[]', {
       get() {
         // TODO: Tim, you need to add proper available income.
         let monthlyIncome = this.get('user.monthlyIncome');

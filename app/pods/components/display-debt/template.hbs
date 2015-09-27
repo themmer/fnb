@@ -19,9 +19,9 @@
               {{#each debtList as |row|}}
                 <tr>
                   <td>{{row.name}}</td>
-                  <td>{{row.totalAmount}}</td>
-                  <td>{{row.monthlyPayment}}</td>
-                  <td>25</td>
+                  <td>${{row.totalAmount}}</td>
+                  <td>${{row.monthlyPayment}}</td>
+                  <td>$25</td>
                   <td>
                     <p>{{mdl-slider min=0 max=100 value=57}}</p>
                   </td>

@@ -14,9 +14,9 @@
       <tr>
         <td>{{row.type}}</td>
         <td>{{row.name}}</td>
-        <td>{{row.totalAmount}}</td>
-        <td>{{row.monthlyPayment}}</td>
-        <td>{{row.interestRate}}</td>
+        <td>${{row.totalAmount}}</td>
+        <td>${{row.monthlyPayment}}</td>
+        <td>{{row.interestRate}}%</td>
       </tr>
     {{/each}}
   </tbody>
@@ -36,15 +36,15 @@
     {{mdl-textfield
       errorMessage="Please input a number"
       isLabelFloating=true pattern="-?[0-9]*(\.[0-9]+)?"
-      label="Total Amount"
+      label="Total Amount ($)"
       value=debtTotalAmount}}
     {{mdl-textfield
       isLabelFloating=true
-      label="Monthly Payment"
+      label="Monthly Payment ($)"
       value=debtMonthlyPayment}}
     {{mdl-textfield
       isLabelFloating=true
-      label="Interest Rate"
+      label="Interest Rate (%)"
       value=debtInterestRate}}
 
     {{#mdl-button action="updateDebtList" isColored=true isRaised=true}}

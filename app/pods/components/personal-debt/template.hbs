@@ -7,6 +7,9 @@
             <h4 class="mdl-cell--12-col">Tell Us About Your Financial Status</h4>
             <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
               <h5>Living expenses</h5>
+              <p>
+                Living expenses may include food, transport, entertainment, rent, etc.
+              </p>
               <form {{action "noop" on="submit"}}>
                 {{mdl-textfield
                   errorMessage="Please input an amount"
@@ -16,9 +19,6 @@
                   value=user.livingExpenses
                 }}
               </form>
-              <p>
-                Living expenses may include food, transport, entertainment, rent, etc.
-              </p>
             </div>
 
             <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">

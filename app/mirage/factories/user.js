@@ -31,10 +31,17 @@ export default Mirage.Factory.extend({
   debtList(i) {
     return [{
       interestRate: 12 + i,
-      monthlyPayment: 20 + (i * 5),
+      monthlyPayment: 100 * i,
       name: ['Amex', 'US Bank', 'Capital One'][i],
       totalAmount: 2000 * i,
       type: 'CREDIT'
+    },
+    {
+      interestRate: 7 + i,
+      monthlyPayment: 100 + (i * 25),
+      name: ['Honda', 'Nissan', 'Chevy'][i],
+      totalAmount: 20000 + (i * 1000),
+      type: 'CAR'
     }];
   },
   isSurveyDone(i) {
