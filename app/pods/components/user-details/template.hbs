@@ -1,5 +1,4 @@
-User Details comp
-<form action="#">
+<form {{action "noop" on="submit"}}>
  	{{mdl-textfield label="Name" value=user.name isLabelFloating=true}}
   {{mdl-textfield label="Age" value=user.age isLabelFloating=true pattern="[0-9]*" errorMessage="Please input a number"}}
   {{mdl-textfield label="Email" value=user.email isLabelFloating=true}}

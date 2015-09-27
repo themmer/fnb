@@ -1,74 +1,51 @@
-{{#mdl-card
-  class="mdl-card mdl-cell mdl-cell--12-col"
-  title="How Much You Owe"}}
-  <!-- Existing debt items container -->
-  <div class="mdl-card__supporting-text">
-    <h5>Existing Debt</h5>
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-      <thead>
-        <tr>
-          <th class="mdl-data-table__cell--non-numeric">Name</th>
-          <th>Total Amount</th>
-          <th>Monthly Payment</th>
-          <th>Recommended Payment</th>
-          <th>You Save</th>
-          <th>Add Goal</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each debtList as |row|}}
-          <tr>
-            <td>{{row.name}}</td>
-            <td>{{row.totalAmount}}</td>
-            <td>{{row.monthlyPayment}}</td>
-            <td>25</td>
-            <td>
-              <p>{{mdl-slider min=0 max=100 value=57}}</p>
-            </td>
-            <td>
-              {{mdl-checkbox value=row.id action="updateGoal"}}
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-    <p>
-      * We recommend paying off the highest interest rates first on what you owe.
-    </p>
-
-    {{#if hasPendindGoals}}
-      {{#mdl-button isColored=true isRaised=true}}
-        Add All Goals
-      {{/mdl-button}}
-    {{/if}}
-
-    <!-- Add new debt container -->
-    <h5>Add New Debt</h5>
-    <div class="mdl-shadow--2dp">
-      <form action="#" {{action "noop" on="submit"}}>
-        {{mdl-textfield label="Type" value=debtType isLabelFloating=true}}
-        {{mdl-textfield label="Name" value=debtName isLabelFloating=true}}
-        {{mdl-textfield
-          errorMessage="Please input a number"
-          isLabelFloating=true pattern="-?[0-9]*(\.[0-9]+)?"
-          label="Total Amount"
-          value=debtTotalAmount}}
-        {{mdl-textfield
-          isLabelFloating=true
-          label="Monthly Payment"
-          value=debtMonthlyPayment}}
-        {{mdl-textfield
-          isLabelFloating=true
-          label="Interest Rate"
-          value=debtInterestRate}}
-
-        {{mdl-button
-          action="updateDebtList"
-          icon="add"
+<div class="mdl-grid demo-content">
+  <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
+        <h4 class="mdl-cell--12-col">How Much You Owe</h4>
+        <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Name</th>
+                <th>Total Amount</th>
+                <th>Monthly Payment</th>
+                <th>Recommended Payment</th>
+                <th>You Save</th>
+                <th>Add Goal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each debtList as |row|}}
+                <tr>
+                  <td>{{row.name}}</td>
+                  <td>{{row.totalAmount}}</td>
+                  <td>{{row.monthlyPayment}}</td>
+                  <td>25</td>
+                  <td>
+                    <p>{{mdl-slider min=0 max=100 value=57}}</p>
+                  </td>
+                  <td>
+                    {{mdl-checkbox value=row.id action="updateGoal"}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+          <p>
+            * We recommend paying off the highest interest rates first on what you owe.
+          </p>
+        </div>
+      </div>
+      <div class="mdl-card__actions">
+        {{#mdl-button
+          action="addAllGoals"
           isColored=true
-          isFloating=true
-          isRaised=true}}
-      </form>
+          isRaised=true
+        }}
+          Add All Goals
+        {{/mdl-button}}
+      </div>
     </div>
-  </div>
-{{/mdl-card}}
+  </section>
+</div>

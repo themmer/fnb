@@ -1,9 +1,13 @@
-{{#mdl-card
-  class="mdl-card mdl-cell mdl-cell--12-col"
-  title="Cashflow Overview"}}
-
-  <div class="status-graphs mdl-card__supporting-text">
-    {{donut-chart data=(mut income) donutTitle=(mut incomeTitle)}}
-    {{pie-chart data=(mut debt)}}
-  </div>
-{{/mdl-card}}
+<div class="mdl-grid demo-content">
+  <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
+        <h4 class="mdl-cell--12-col">Cashflow Overview</h4>
+        <div class="status-graphs section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+          {{donut-chart data=(mut income) donutTitle=(mut incomeTitle)}}
+          {{pie-chart data=(mut debt)}}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

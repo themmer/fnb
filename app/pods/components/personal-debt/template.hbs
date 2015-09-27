@@ -1,43 +1,62 @@
 {{#if user.isIncomeDone}}
-
   {{#unless user.isDebtDone}}
-    <br/>
+    <div class="mdl-grid demo-content">
+      <section class="section--center mdl-grid--no-spacing mdl-grid mdl-shadow--2dp">
+        <div class="mdl-card mdl-cell mdl-cell--12-col">
+          <div class="mdl-card__supporting-text mdl-grid--no-spacing mdl-grid">
+            <h4 class="mdl-cell--12-col">Tell Us About Your Financial Status</h4>
+            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5>Living expenses</h5>
+              <form {{action "noop" on="submit"}}>
+                {{mdl-textfield
+                  errorMessage="Please input an amount"
+                  isLabelFloating=true
+                  label="$"
+                  pattern="[0-9]*(\.[0-9]+)?"
+                  value=null
+                }}
+              </form>
+              <p>
+                Living expenses may include food, transport, entertainment, rent, etc.
+              </p>
+            </div>
 
-    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Basic Details</h2>
-      </div>
-      <div class="mdl-card__supporting-text">
-      	Assumed living expenses (includes food, transport, entertainment, rent, etc.)
-    		<form action="#">
-          {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input an amount"}}
-    		</form>
-      </div>
-    </div>
+            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              <h5>Do you owe any money?</h5>
+              <form {{action "noop" on="submit"}}>
+                {{mdl-radio
+                  action="debtAction"
+                  checked=hasDebt
+                  name="hasDebt"
+                  text="Yes"
+                  value="hasDebt"
+                }}
+                {{mdl-radio
+                  action="debtAction"
+                  checked=noDebt
+                  name="hasDebt"
+                  text="No"
+                  value="noDebt"
+                }}
+              </form>
+            </div>
 
-    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">Do you owe any money?</h2>
-      </div>
-      <div class="mdl-card__supporting-text">
-        <form action="#">
-          {{mdl-radio value=hasDebt text='Yes' name='hasDebt' checked=hasDebtChecked action='hasDebtCheckedAction'}}
-          {{#mdl-radio name='hasDebt' checked=hasDebtNotChecked action='hasDebtNotCheckedAction'}}
-            No
-          {{/mdl-radio}}
-        </form>
-      </div>
-    </div>
-
-    {{#if user.hasDebt}}
-      {{add-debt}}
-    {{else}}
-      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__supporting-text">
-          Please see {{#mdl-button isColored=true isRaised=true action='goToInvestments'}}Investments{{/mdl-button}} or {{#mdl-button isColored=true isRaised=true action='goToGoals'}}Goals{{/mdl-button}}
+            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+              {{#if user.hasDebt}}
+                {{add-debt}}
+              {{else}}
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__supporting-text">
+                    Please see {{#mdl-button isColored=true isRaised=true action='goToInvestments'}}Investments{{/mdl-button}} or {{#mdl-button isColored=true isRaised=true action='goToGoals'}}Goals{{/mdl-button}}
+                  </div>
+                </div>
+              {{/if}}
+            </div>
+          </div>
         </div>
-      </div>
-    {{/if}}
+      </section>
+    </div>
+
   {{/unless}}
   {{#if user.isDebtDone}}
     {{display-debt}}

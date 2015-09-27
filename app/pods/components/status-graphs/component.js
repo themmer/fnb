@@ -22,11 +22,32 @@ export default Ember.Component.extend({
    */
   debt: computed({
     get() {
-      // TODO: Tim, you need to add proper debt.
-      return [
-        ['Good Debt', 300],
-        ['Bad Debt', 500]
-      ];
+      let debtList = this.get('user.debtList');
+      let ret;
+
+      if (Ember.isArray(debtList)) {
+        let goodDebt = debtList.filter((debt) => {
+          return debt.type && debt.type !== 'CREDIT';
+        });
+        let badDebt = debtList.filter((debt) => {
+          return debt.type && debt.type === 'CREDIT';
+        });
+
+        goodDebt.unshift('Good Dept');
+        badDebt.unshift('Bad Dept');
+
+        ret = [
+          goodDebt,
+          badDebt
+        ];
+      } else {
+        ret = [
+          ['Good Debt'],
+          ['Bad Debt']
+        ];
+      }
+
+      return ret;
     }
   }),
 

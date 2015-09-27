@@ -10,15 +10,19 @@ export default Ember.Component.extend({
    */
   user: Ember.computed.alias('session.user'),
 
-  hasIncomeChecked: Ember.computed('user.hasMonthlyIncome', {
+  hasMonthlyIncome: Ember.computed('user.hasMonthlyIncome', {
+
+  }),
+
+  hasIncome: Ember.computed({
     get() {
       return this.get('user.hasMonthlyIncome');
     }
   }),
 
-  hasIncomeNotChecked: Ember.computed('user.hasMonthlyIncome', {
+  noIncome: Ember.computed({
     get() {
-      return true !== this.get('user.hasMonthlyIncome');
+      return !this.get('user.hasMonthlyIncome');
     }
   }),
 
@@ -26,11 +30,16 @@ export default Ember.Component.extend({
     incomeDoneAction: function() {
       Ember.set(this, 'user.isIncomeDone', true);
     },
-    hasIncomeCheckedAction: function() {
-      Ember.set(this, 'user.hasMonthlyIncome', true);
-    },
-    hasIncomeNotCheckedAction: function() {
-      Ember.set(this, 'user.hasMonthlyIncome', false);
+
+    incomeAction: function (val) {
+      let value = val.get('value');
+      let hasMonthlyIncome = false;
+
+      if (value === 'hasIncome') {
+        hasMonthlyIncome = true;
+      }
+
+      this.get('user').set('hasMonthlyIncome', hasMonthlyIncome);
     }
   }
 });

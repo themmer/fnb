@@ -37,44 +37,6 @@ export default Ember.Component.extend({
   selectedGoals: [],
 
   actions: {
-    noop: function() {},
-
-    addDebt: function() {
-      Ember.Logger.info('addDebt');
-    },
-
-    updateDebtList: function() {
-      let user = this.get('user');
-      let debtList = user.get('debtList');
-      let debt = {
-        interestRate: this.get('debtInterestRate'),
-        monthlyPayment: this.get('debtMonthlyPayment'),
-        name: this.get('debtName'),
-        totalAmount: this.get('debtTotalAmount'),
-        type: this.get('debtType')
-      };
-
-      if (debtList) {
-        user.get('debtList').pushObject(debt);
-      } else {
-        user.set('debtList', [debt]);
-      }
-
-      this.setProperties({
-        debtInterestRate: 0,
-        debtMonthlyPayment: 0,
-        debtName: '',
-        debtTotalAmount: 0,
-        debtType: '',
-      });
-    },
-
-    toggleDebtPane: function() {
-      this.toggleProperty('isAddingDebt');
-    },
-
-    updateGoal: function(a, b) {
-
-    }
+    noop: function() {}
   }
 });
