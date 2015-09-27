@@ -13,9 +13,10 @@ export default Ember.Component.extend({
     	return retirementAge - age;
     }
 	}),
-	availbleIncome: computed('session.user.usedIncome', 'session.user.monthlyIncome', {
+	availbleIncome: computed('session.user.usedIncome', 'session.user.monthlyIncome', 'session.user.livingExpenses', {
     get() {
   		var usedIncome = this.get('session.user.usedIncome');
+  		var livingExpenses = this.get('session,user.livingExpenses');
   		var monthlyIncome = this.get('session.user.monthlyIncome');
   		return monthlyIncome - usedIncome;
     }
@@ -71,6 +72,7 @@ export default Ember.Component.extend({
 		  var count = age;
 		  var retirementAge = this.get('retirementAge');
 		  for(; count < retirementAge; count = count + 1){
+		  	console.log('year!');
 	    	yearArray.pushObject(years); 
 	    }
 	    console.log('year array', yearArray);
@@ -81,9 +83,9 @@ export default Ember.Component.extend({
 
     	return [
           ['x', '45', '46', '47', '48', '49', '50'],
-          ['IRA', 30, 200, 100, 400, 150, 250],
-          ['Savings', 130, 340, 200, 500, 250, 350],
-          ['Total', 500, 600, 800, 700, 850, 850]
+          ['Savings', 100, 200, 100, 400, 150, 250],
+          ['Bonds', 100, 140, 200, 220, 250, 350],
+          ['Stocks', 100, 300, 500, 750, 830, 850]
       ];
 		 }
   }),

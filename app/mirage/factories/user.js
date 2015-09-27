@@ -26,17 +26,17 @@ export default Mirage.Factory.extend({
     }];
   },
   monthlyIncome(i) {
-    return 1000 * i;
+    return 500 * i + 1000;
   },
-  usedIncome(i) {
+  usedIncome() {
     return 0;
   },
   debtList(i) {
     return [{
       interestRate: 12 + i,
-      monthlyPayment: 100 * i,
+      monthlyPayment: 100 + 100 * i,
       name: ['Amex', 'US Bank', 'Capital One'][i],
-      totalAmount: 2000 * i,
+      totalAmount: 200 * i + 250,
       type: 'CREDIT'
     },
     {
@@ -48,14 +48,14 @@ export default Mirage.Factory.extend({
     }];
   },
   isSurveyDone(i) {
-    if(i < 5) {
+    if(i < 3) {
       return true;
     } else {
       return false;
     }
   },
   isIncomeDone(i) {
-    if(i < 5) {
+    if(i < 3) {
       return true;
     } else {
       return false;
@@ -70,7 +70,7 @@ export default Mirage.Factory.extend({
     }
   },
   isDebtDone(i) {
-    if(i < 5) {
+    if(i < 3) {
       return true;
     } else {
       return false;
