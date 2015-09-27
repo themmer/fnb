@@ -5,7 +5,7 @@ export default Mirage.Factory.extend({
     return i + 1;
   },
   name(i) {
-    return ['Bam Bam', 'Fred', 'Wilma', 'Barney', 'Betty'][i];
+    return ['Bam Bam', 'Barney', 'Fred'][i];
   },
   age(i) {
     return 15 + (i * 5);
@@ -32,7 +32,7 @@ export default Mirage.Factory.extend({
     return [{
       interestRate: 12 + i,
       monthlyPayment: 20 + (i * 5),
-      name: ['Amex', 'US Bank', 'Capital One', 'Chase', 'Discover'][i],
+      name: ['Amex', 'US Bank', 'Capital One'][i],
       totalAmout: 2000 * i,
       type: 'CREDIT'
     }];
@@ -53,7 +53,7 @@ export default Mirage.Factory.extend({
   },
   // Bam Bam is sugar daddy
   hasDebt(i) {
-    if(i === 0) {
+    if(i === 2) {
       return false;
     } else {
       return true;
@@ -65,5 +65,11 @@ export default Mirage.Factory.extend({
     } else {
       return false;
     }
+  },
+  stageInLife(i) {
+    return ['HIGHSCHOOL', 'COLLEGE', 'CAREER'][i];
+  },
+  hasMonthlyIncome(i) {
+    return [true, true, true][i];
   }
 });
