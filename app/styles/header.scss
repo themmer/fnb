@@ -22,6 +22,24 @@
     font-family: Raleway, Helvetica, Arial, sans-serif;
 }
 
+header nav .mdl-navigation__link {
+    border: 1px solid $dark-green;
+    color: $white;
+    margin-right: 2px;
+}
+
+header nav .mdl-navigation__link.active {
+    border: 1px solid $light-green;
+    color: $light-green;
+    margin-right: 2px;
+}
+
+header nav .mdl-navigation__link:hover, header nav .mdl-navigation__link:active {
+    border: 1px solid $olive-green;
+    color: $olive-green;
+    margin-right: 2px;
+}
+
 .user-account {
     list-style-type: none;
     position: absolute;
