@@ -35,7 +35,8 @@ export default Mirage.Factory.extend({
       name: ['Amex', 'US Bank', 'Capital One', 'Chase', 'Discover'][i],
       totalAmout: 2000 * i,
       type: 'CREDIT'
-    }]
+    }];
+  },
   isSurveyDone(i) {
     if(i < 5) {
       return true;
