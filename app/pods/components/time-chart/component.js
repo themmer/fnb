@@ -117,8 +117,8 @@ export default Ember.Component.extend({
    @method
    */
   _willDestroyElement: Ember.on('willDestroyElement', function() {
-    let graph = this.get('graphInstance');
+    // let graph = this.get('graphInstance');
 
-    graph = graph.destroy();
+    // graph = graph.destroy();
   })
 });
