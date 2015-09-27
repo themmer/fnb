@@ -7,8 +7,9 @@
     .mdl-navigation__link {
         font-size: 14px;
         line-height: 34px;
-        &:hover, &:active {
-        color: $light-green;
+        &:hover,
+        &:active {
+            color: $light-green;
         }
     }
     .mdl-navigation {
@@ -32,12 +33,7 @@
         color: $light-green;
         margin-left: 24px;
     }
-    select {
-        background: $dark-green;
-        border: 1px solid $light-green;
+    .mdl-button--colored {
         color: $light-green;
-        width: 120px;
-        border-radius: 2px;
-        padding: 5px;
     }
 }
