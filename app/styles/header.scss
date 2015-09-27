@@ -34,7 +34,8 @@ header nav .mdl-navigation__link.active {
     margin-right: 2px;
 }
 
-header nav .mdl-navigation__link:hover, header nav .mdl-navigation__link:active {
+header nav .mdl-navigation__link:hover,
+header nav .mdl-navigation__link:active {
     border: 1px solid $olive-green;
     color: $olive-green;
     margin-right: 2px;
@@ -54,4 +55,10 @@ header nav .mdl-navigation__link:hover, header nav .mdl-navigation__link:active 
     .mdl-button--colored {
         color: $light-green;
     }
+}
+
+.mdl-layout__drawer > .mdl-layout-title {
+    line-height: 1.5;
+    padding-left: 40px;
+    margin-top: 20px;
 }
