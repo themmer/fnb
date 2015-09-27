@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
 	/**
    The currently active user
 
@@ -11,5 +10,9 @@ export default Ember.Component.extend({
    */
   user: Ember.computed.alias('session.user'),
 
-  isIntroDone: false
+	actions: {
+    incomeDoneAction: function() {
+      this.set('user.isIncomeDone', true);
+    }
+  }
 });

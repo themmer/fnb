@@ -54,6 +54,12 @@ export default DS.Model.extend({
   isSurveyDone: attr('boolean', {
     defaultValue: false
   }),
+  isIncomeDone: attr('boolean', {
+    defaultValue: false
+  }),
+  isDebtDone: attr('boolean', {
+    defaultValue: false
+  }),
   hasMonthlyIncome: attr('boolean', {
     defaultValue: false
   }),

@@ -9,14 +9,14 @@
 			<ul>
 				<li></li>
 				<li>{{mdl-textfield label="Name" value=name isLabelFloating=true}}</li>
-				<li><{{mdl-textfield label="Total Amount" value=name isLabelFloating=true}}/li>
+				<li>{{mdl-textfield label="Total Amount" value=name isLabelFloating=true}}</li>
 				<li>{{mdl-textfield label="Monthly Payment" value=name isLabelFloating=true}}</li>
 				<li>{{mdl-textfield label="Interest Rate" value=name isLabelFloating=true}}</li>
 				<li>{{#mdl-button isColored=true isRaised=true}}Save{{/mdl-button}}</li>
 			</ul>
 			{{mdl-button isFloating=true icon='add'}} Add New Row
 			<br/>
-			{{#mdl-button isColored=true isRaised=true}}Done{{/mdl-button}}
+			{{#mdl-button isColored=true isRaised=true action='debtDoneAction'}}Done{{/mdl-button}}
 		</form>
   </div>
 </div>

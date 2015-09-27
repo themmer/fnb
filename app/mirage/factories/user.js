@@ -36,5 +36,33 @@ export default Mirage.Factory.extend({
       totalAmout: 2000 * i,
       type: 'CREDIT'
     }]
+  isSurveyDone(i) {
+    if(i < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  isIncomeDone(i) {
+    if(i < 5) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  // Bam Bam is sugar daddy
+  hasDebt(i) {
+    if(i === 0) {
+      return false;
+    } else {
+      return true;
+    }
+  },
+  isDebtDone(i) {
+    if(i < 5) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
