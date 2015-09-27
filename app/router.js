@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('resources');
   this.route('survey');
   this.route('investment');
+  this.route('settings');
 });
 
 export default Router;

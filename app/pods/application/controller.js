@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
    @property user
    @type object
    */
-  user: Ember.computed.oneWay('session.user'),
+  user: Ember.computed.alias('session.user'),
 
   /**
    The list of side loaded users

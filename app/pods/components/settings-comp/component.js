@@ -8,5 +8,5 @@ export default Ember.Component.extend({
    @property user
    @type object
    */
-  user: Ember.computed.alias('session.user')
+  user: Ember.computed.alias('session.user'),
 });
