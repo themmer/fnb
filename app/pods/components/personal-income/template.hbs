@@ -1,12 +1,12 @@
-{{#unless user.isIncomeDone}}
+{{#if user.isIncomeDone}}
   {{status-graphs class="status-graphs mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid"}}
-
+{{else}}
   <div class="demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">Hi {{user.name}}</h2>
     </div>
     <div class="mdl-card__supporting-text">
-  		We are almost there. Before we being we need a couple of details
+      We are almost there. Before we being we need a couple of details
     </div>
   </div>
 
@@ -30,25 +30,25 @@
       <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
     </div>
     <div class="mdl-card__supporting-text">
-  		<form action="#">
+      <form action="#">
         {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input a number"}}
-  		</form>
-  		Info box: Monthly income may include the following: salary, side jobs
+      </form>
+      Info box: Monthly income may include the following: salary, side jobs
     </div>
   </div>
 
-  ** if no ** 
+  ** if no **
   <div class="demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">How much can you spend a month?</h2>
     </div>
     <div class="mdl-card__supporting-text">
-  		<form action="#">
+      <form action="#">
         {{mdl-textfield label="$" value=null isLabelFloating=true pattern="[0-9]*(\.[0-9]+)?" errorMessage="Please input an amount"}}
-  		</form>
+      </form>
     </div>
   </div>
 
   <br/>
   {{#mdl-button isColored=true isRaised=true action='incomeDoneAction'}}Let's Get Started{{/mdl-button}}
-  {{/unless}}
+{{/if}}
