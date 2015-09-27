@@ -8,5 +8,10 @@ export default Ember.Component.extend({
    @property user
    @type object
    */
-  user: Ember.computed.alias('session.user')
+  user: Ember.computed.alias('session.user'),
+
+	actions: {
+    debtDoneAction: function() {
+      this.set('user.isDebtDone', true);
+    }  }  
 });
