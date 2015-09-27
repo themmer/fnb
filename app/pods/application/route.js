@@ -51,7 +51,10 @@ export default Ember.Route.extend({
   actions: {
     changeUser(user) {
       let session = this.get('session');
-      session.set('user', this.store.findRecord('user', user.get('userId')));
+      this.store.findRecord('user', user.get('userId'))
+        .then((user) => {
+          session.set('user', user);
+        });
     }
   }
 });

@@ -15,6 +15,11 @@ export default function() {
    */
   this.get('/users/:id');
 
+  /**
+   Update a single user.
+   */
+  this.put('/users/:id');
+
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
