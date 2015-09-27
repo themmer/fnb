@@ -120,5 +120,19 @@ export default DS.Model.extend({
 
       return false;
     }
+  }),
+
+  totalMonthlyDebt: computed('debtList.[]', {
+    get() {
+      let debtList = this.get('debtList');
+
+      if (Ember.isEmpty(debtList)) {
+        return 0;
+      }
+
+      return debtList.reduce((previous, current) => {
+        return previous + current.monthlyPayment;
+      },0);
+    }
   })
 });

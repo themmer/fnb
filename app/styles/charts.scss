@@ -8,3 +8,15 @@
 .status-graphs {
   text-align: center;
 }
+
+.status-graphs-details {
+  display: inline-block;
+  text-align: left;
+  h5 {
+    font-size: 1.2em !important;
+    font-weight: bold;
+  }
+  p {
+    font-size: 4.0em;
+  }
+}
