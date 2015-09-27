@@ -39,7 +39,9 @@ export default DS.Model.extend({
 
   // DEBTS HERE
   debtList: attr(),
-  hasDebt: attr('boolean'),
+  hasDebt: attr('boolean', {
+    defaultValue: false
+  }),
   /** CREDIT, CAR, STUDENT_LOAN */
   // type: attr('string'),
   // name: attr('string'),
