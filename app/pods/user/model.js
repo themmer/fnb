@@ -9,7 +9,7 @@ export default DS.Model.extend({
 
   // User attributes acquired via the short survey
   name: attr('string'),
-  age: attr('number', {defaultValue: 0}),
+  age: attr('number'),
   email: attr('string'),
   phone: attr('string'),
 
