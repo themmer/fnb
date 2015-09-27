@@ -85,3 +85,16 @@
     padding-bottom: 0;
     margin-bottom: 0;
 }
+
+.page-content .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+    color: rgb(16, 73, 24);
+}
+
+.debt-type select {
+    margin-top: 8px;
+    margin-left: 2px;
+}
+
+.page-content a {
+    color: $dark-green;
+}

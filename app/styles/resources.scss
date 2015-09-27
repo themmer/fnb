@@ -66,9 +66,15 @@
     position: relative;
 }
 
-.mdl-grid .mdl-card__supporting-text h4 {
-    margin-top: 0;
-    margin-bottom: 20px;
+.mdl-grid .mdl-card__supporting-text {
+    h4 {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    h5 {
+        background: $light-green;
+        padding: 10px;
+    }
 }
 
 .mdl-grid .mdl-card .mdl-card__supporting-text {
