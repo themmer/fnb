@@ -8,7 +8,7 @@ export default Mirage.Factory.extend({
     return ['Bam Bam', 'Barney', 'Fred'][i];
   },
   age(i) {
-    return 15 + (i * 5);
+    return 15 + (i * 10);
   },
   email(i) {
     return `user${i}@fnb.com`;

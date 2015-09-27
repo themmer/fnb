@@ -157,7 +157,6 @@ export default DS.Model.extend({
           availableIncome -= livingExpenses;
         }
       }
-
       return availableIncome;
     }
   })

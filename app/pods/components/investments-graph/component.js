@@ -4,6 +4,9 @@ let computed = Ember.computed;
 
 export default Ember.Component.extend({
 
+	interestRate: 0,
+	label: '',
+
 	retirementAge: 67,
 
 	years: computed('session.user.age', {
@@ -13,113 +16,76 @@ export default Ember.Component.extend({
     	return retirementAge - age;
     }
 	}),
-	availbleIncome: computed('session.user.usedIncome', 'session.user.monthlyIncome', 'session.user.livingExpenses', {
+  investments: computed('session.user', 'session.user.availableIncome', 'session.user.stageInLife', 'years', {
     get() {
-  		var usedIncome = this.get('session.user.usedIncome');
-  		var livingExpenses = this.get('session,user.livingExpenses');
-  		var monthlyIncome = this.get('session.user.monthlyIncome');
-  		return monthlyIncome - usedIncome;
-    }
-	}),
-  investments: computed('session.user', 'availbleIncome', 'session.user.stageInLife', 'years', {
-    get() {
-    	let availbleIncome = this.get('availbleIncome');
-    	let stageInLife = this.get('session.user.stageInLife');
-
+    	let availableIncome = this.get('session.user.availableIncome');
+    	
+    	// let stageInLife = this.get('session.user.stageInLife');
     	// let investmentOptions = [];
-
     	// this is where add the types based on the type of person
-    	if('HIGHSCHOOL' === stageInLife) {
+    	// if('HIGHSCHOOL' === stageInLife) {
 
-    	} else if('HIGHSCHOOL' === stageInLife) {
+    	// } else if('HIGHSCHOOL' === stageInLife) {
 
-    	} else if('HIGHSCHOOL' === stageInLife) {
+    	// } else if('HIGHSCHOOL' === stageInLife) {
 
-    	} 
+    	// } 
 
-    	// var returnArray = [];
-    	// assume average rate for each available option from investmentOptions
-
-    	console.log('ava income', availbleIncome);
-    	availbleIncome = 100;
-
-   //  	var interest = 0;
-
-			// var i = interest;
-	  //   if (i > 1.0) {
-	  //   	i = interest / 100;
-	  //   }
-	  //   i /= 12;
-	  //   var ma = availbleIncome;
-	  //   var prin = 0;
-	  //   var pmts = years * 12;
-	  //   var count = 0;
-	 
-	  //   while(count < pmts) {
-   //      var newprin = prin + ma;
-   //      prin = (newprin * i) + prin + ma;
-   //      count = count + 1;
-   //      console.log(prin);
-   //    }
-
-	  //   var futureVale = prin;
-	  //   console.log('fv', futureVale);
-
-
+	  	var age = this.get('session.user.age');
 		  var yearArray = ['x'];
 		  var years = this.get('years');
-		  var age = this.get('age');
-		  var count = age;
-		  var retirementAge = this.get('retirementAge');
-		  for(; count < retirementAge; count = count + 1){
-		  	console.log('year!');
-	    	yearArray.pushObject(years); 
+
+		  let count = 0;
+		  for(; count < years; count = count + 1){
+	    	yearArray.pushObject(age + count); 
 	    }
-	    console.log('year array', yearArray);
 
-	    var hello = this.get('getArray');
-	    console.log('hello', hello);
+	    this.set('interestRate', .5);
+	    this.set('label', 'Savings');
+	    var savingsArray = this.get('getArray');
 
+	    this.set('interestRate', 3);
+	    this.set('label', 'Bonds');
+	    var bondsArray = this.get('getArray');
+
+	   	this.set('interestRate', 6);
+	   	this.set('label', 'Stocks');
+	    var stocksArray = this.get('getArray');
 
     	return [
-          ['x', '45', '46', '47', '48', '49', '50'],
-          ['Savings', 100, 200, 100, 400, 150, 250],
-          ['Bonds', 100, 140, 200, 220, 250, 350],
-          ['Stocks', 100, 300, 500, 750, 830, 850]
+          yearArray,
+          savingsArray,
+          bondsArray,
+          stocksArray
       ];
 		 }
   }),
-	getArray: computed('years', 'availbleIncome', {
+
+	getArray: computed('label', {
     get() {
     var retDataArray = [];
 		var years = this.get('years');
+		var monthlyPayment = this.get('session.user.availableIncome');
+		var interest = this.get('interestRate');
+		var label = this.get('label');
+		retDataArray.pushObject(label);
 
-		var monthlyPayment = this.get('availbleIncome');
-
-		monthlyPayment = 100;
-		years = 1;
-		var interest = 1;
-
-			var i = interest;
-	    if (i > 1.0) {
-	    	i = interest / 100;
-	    }
-	    i /= 12;
+			var i = interest / 100;
+	    i = i / 12;
 	    var ma = monthlyPayment;
 	    var prin = 0;
 	    var pmts = years * 12;
-	    var count = 0;
+	    let count = 0;
 	 
 	    while(count < pmts) {
         var newprin = prin + ma;
-        prin = (newprin * i) + prin + ma;
+        prin = newprin + (newprin * i);
         count = count + 1;
-        console.log(prin);
-				retDataArray.pushObject(prin);
+        if((count) % 12 === 0) {
+					retDataArray.pushObject(parseInt(prin, 10));
+      	}
       }
 
-	    var futureVale = prin;
-	    console.log('fv', futureVale);
 	    return retDataArray;
 		}
 	})
