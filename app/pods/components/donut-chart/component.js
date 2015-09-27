@@ -29,6 +29,15 @@ export default Ember.Component.extend({
   data: null,
 
   /**
+   The value to use for a title.
+
+   @public
+   @property donutTitle
+   @type Object
+   */
+  donutTitle: null,
+
+  /**
    The graph instace created with `c3.generate`
 
    @private
@@ -71,13 +80,18 @@ export default Ember.Component.extend({
     if (graph) {
       // Perhaps we can unload data if we find it necessary
       // graph.unload();
-      graph.load(_this.getFormattedData(data));
+      graph.load({
+        columns: _this.getFormattedData(data),
+      });
     } else {
       graph = c3.generate({
         bindto: `#${elementId}`,
         data: {
           columns: _this.getFormattedData(data),
           type: 'donut'
+        },
+        donut: {
+          title: _this.get('donutTitle')
         },
         transition: {
           duration: 300
