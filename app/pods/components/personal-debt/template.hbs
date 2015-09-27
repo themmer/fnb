@@ -18,7 +18,7 @@
                   value=user.livingExpenses
                 }}
               </form>
-            </div>
+            
               <h5>Do you owe any money?</h5>
               <form {{action "noop" on="submit"}}>
                 {{mdl-radio
@@ -36,7 +36,7 @@
                   value="noDebt"
                 }}
               </form>
-
+            
               {{#if user.hasDebt}}
                 {{add-debt}}
               {{else}}
