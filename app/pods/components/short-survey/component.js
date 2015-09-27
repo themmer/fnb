@@ -11,14 +11,22 @@ export default Ember.Component.extend({
   user: Ember.computed.alias('session.user'),
 
 	isCareerChecked: function() {
-		return "CAREER" === user.stageInLife;
+		return 'CAREER' === user.stageInLife;
 	},
 
 	isCollegeChecked: function() {
-		return "COLLEGE" === user.stageInLife;
+		return 'COLLEGE' === user.stageInLife;
 	},
 
 	isHighSchoolChecked: function() {
-		return "HIGHSCHOOL" === user.stageInLife;
-	}
+		return 'HIGHSCHOOL' === user.stageInLife;
+	},
+
+	isIntroDone: null,
+
+	actions: {
+    surveyDoneAction: function() {
+      this.set('user.isSurveyDone', true);
+    }
+  }
 });

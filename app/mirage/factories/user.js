@@ -27,5 +27,12 @@ export default Mirage.Factory.extend({
   },
   monthlyIncome(i) {
     return 1000 * i;
+  },
+  isSurveyDone(i) {
+    if(i < 5) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
