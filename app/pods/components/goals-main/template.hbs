@@ -1,1 +1,92 @@
-Goals Main Component
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Add new Goal</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <form action="#" {{action "noop" on="submit"}}>
+      {{mdl-textfield label="Name" value=goalName isLabelFloating=true}}
+      {{mdl-textfield label="Amount" value=goalAmount isLabelFloating=true pattern="-?[0-9]*(\.[0-9]+)?" errorMessage="Please input a number"}}
+      {{mdl-textfield label="Time" value=goalCompletionTime isLabelFloating=true}}
+      {{mdl-textfield label="Amount available" value=availableIncome isLabelFloating=true}}
+
+      {{#mdl-button isColored=true isRaised=true action="saveGoal"}}Save Goal{{/mdl-button}}
+    </form>
+  </div>
+</div>
+
+{{#if hasGoals}}
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Your Active Goals</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      {{#if hasDebtGoals}}
+        <h3>Debt</h3>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+              <th>Amount</th>
+              <th>Payoff In</th>
+              <th>Total Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each debtGoals as |row|}}
+              <tr>
+                <td>{{row.name}}</td>
+                <td>{{row.amount}}</td>
+                <td>{{row.payoff}}</td>
+                <td>{{row.totalSaved}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+
+      {{#if hasInvestmentGoals}}
+        <h3>Investment</h3>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+              <th>Amount</th>
+              <th>Total Accrued</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each investmentGoals as |row|}}
+              <tr>
+                <td>{{row.name}}</td>
+                <td>{{row.amount}}</td>
+                <td>{{row.totalAccrued}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+
+      {{#if shoppingGoals}}
+        <h3>Shopping Goals</h3>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Name</th>
+              <th>Amount</th>
+              <th>Time to Completion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each debtGoals as |row|}}
+              <tr>
+                <td>{{row.name}}</td>
+                <td>{{row.amount}}</td>
+                <td>{{row.completionDate}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+    </div>
+  </div>
+{{/if}}

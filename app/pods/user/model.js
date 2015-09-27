@@ -1,5 +1,8 @@
+import Ember from 'ember';
 import DS from 'ember-data';
+
 let attr = DS.attr;
+let computed = Ember.computed;
 
 export default DS.Model.extend({
   /** string, number, date, boolean */
@@ -11,16 +14,18 @@ export default DS.Model.extend({
   phone: attr('string'),
 
   /** HIGHSCHOOL, COLLEGE, CAREER  **/
-  stageInLife: attr('string', {defaultValue: 'HIGHSCHOOL'}),
+  stageInLife: attr('string', {
+    defaultValue: 'HIGHSCHOOL'
+  }),
 
   monthlyIncome: attr('number'),
-  disposableIncome: attr('number'),
+  monthlyCash: attr('number'),
 
   // .25 percent of income by default
-  livingExpenses: attr('number', {defaultValue: 25}),
+  livingExpenses: attr('number'),
 
   // GOALS HERE
-  goals: attr(),
+  goalList: attr(),
   // name: attr('string'),
   /** DEBT, INVESTMENT, SHOPPING **/
   // type: attr('string'),
@@ -33,7 +38,8 @@ export default DS.Model.extend({
   // priorityType: attr('string'),
 
   // DEBTS HERE
-  debt: attr(),
+  debtList: attr(),
+  hasDebt: attr('boolean'),
   /** CREDIT, CAR, STUDENT_LOAN */
   // type: attr('string'),
   // name: attr('string'),
@@ -45,16 +51,66 @@ export default DS.Model.extend({
   // investments: attr(),
 
   // FLAGS - could be computed properties, but we want to persist the data
-  isSurveyDone: attr('boolean', { defaultValue: false }),
-  hasMonthlyIncome: attr('boolean', { defaultValue: false }),
+  isSurveyDone: attr('boolean', {
+    defaultValue: false
+  }),
+  hasMonthlyIncome: attr('boolean', {
+    defaultValue: false
+  }),
 
   // SETTINGS HERE
-  settings: attr({defaultValue: function() {
-    return {
-      hasEmailNotifications: true,
-      hasTextNotificaitons: true,
-      // in months
-      frequencyNotification: 3
-    };
-  }})
+  settings: attr({
+    defaultValue: function() {
+      return {
+        hasEmailNotifications: true,
+        hasTextNotificaitons: true,
+        // in months
+        frequencyNotification: 3
+      };
+    }
+  }),
+
+  // Various boolean checks
+  hasGoals: computed('goalList.[]', {
+    get() {
+      let goalList = this.get('goalList');
+      return goalList && goalList.length;
+    }
+  }),
+
+  hasDebtGoals: computed('goalList.[]', {
+    get() {
+      let goalList = this.get('goalList');
+
+      if (Ember.isArray(goalList)) {
+        return goalList.filter(goal => goal.type === 'DEBT').length;
+      }
+
+      return false;
+    }
+  }),
+
+  hasInvestmentGoals: computed('goalList.[]', {
+    get() {
+      let goalList = this.get('goalList');
+
+      if (Ember.isArray(goalList)) {
+        return goalList.filter(goal => goal.type === 'INVESTMENT').length;
+      }
+
+      return false;
+    }
+  }),
+
+  hasShoppingGoals: computed('goalList.[]', {
+    get() {
+      let goalList = this.get('goalList');
+
+      if (Ember.isArray(goalList)) {
+        return goalList.filter(goal => goal.type === 'SHOPPING').length;
+      }
+
+      return false;
+    }
+  })
 });
