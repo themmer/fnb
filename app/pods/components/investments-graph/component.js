@@ -18,7 +18,7 @@ export default Ember.Component.extend({
 	}),
   investments: computed('session.user', 'session.user.availableIncome', 'session.user.stageInLife', 'years', {
     get() {
-    	let availableIncome = this.get('session.user.availableIncome');
+    	// let availableIncome = this.get('session.user.availableIncome');
     	
     	// let stageInLife = this.get('session.user.stageInLife');
     	// let investmentOptions = [];
@@ -40,7 +40,7 @@ export default Ember.Component.extend({
 	    	yearArray.pushObject(age + count); 
 	    }
 
-	    this.set('interestRate', .5);
+	    this.set('interestRate', 0.5);
 	    this.set('label', 'Savings');
 	    var savingsArray = this.get('getArray');
 
