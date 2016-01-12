@@ -76,9 +76,10 @@ export default Ember.Component.extend({
       if (!Ember.isEmpty(monthlyIncome) && monthlyIncome > 0) {
         availableIncome = monthlyIncome - usedIncome;
 
-        if (availableIncome > livingExpenses) {
-          availableIncome -= livingExpenses;
-        }
+        // TODO this needs to be fixed ... handle negative flows
+        // if (availableIncome > livingExpenses) {
+        availableIncome -= livingExpenses;
+        // }
       }
 
       return [
@@ -97,7 +98,8 @@ export default Ember.Component.extend({
     incomeTitle: computed('session.user', 'session.user.monthlyIncome',
     'session.user.livingExpenses', 'session.user.debtList.[]', {
       get() {
-        // TODO: Tim, you need to add proper available income.
+        // TODO: This is not right - I would prefer we break this into more computed properties that have single responsibility principal
+        // Also consider how we calculate available income along with negative income...0 isn't the solution here... how do we get people out of debt?
         let monthlyIncome = this.get('user.monthlyIncome');
         let usedIncome = this.get('user.availableIncome') || 0;
         let availableIncome;

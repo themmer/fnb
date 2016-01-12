@@ -9,14 +9,19 @@ export default Ember.Component.extend({
 
 	retirementAge: 67,
 
-	years: computed('session.user.age', {
+	years: computed('session.user.age', 'retirementAge', {
     get() {
     	let retirementAge = this.get('retirementAge');
     	var age = this.get('session.user.age');
-    	return retirementAge - age;
+    	if(age < retirementAge) {
+    		return retirementAge - age;	
+    	} else {
+    		return 0;
+    	}
+    	
     }
 	}),
-  investments: computed('session.user', 'session.user.availableIncome', 'session.user.stageInLife', 'years', {
+  investments: computed('session.user', 'session.user.age', 'session.user.availableIncome', 'years', {
     get() {
     	// let availableIncome = this.get('session.user.availableIncome');
     	
@@ -36,8 +41,8 @@ export default Ember.Component.extend({
 		  var years = this.get('years');
 
 		  let count = 0;
-		  for(; count < years; count = count + 1){
-	    	yearArray.pushObject(age + count); 
+		  for(; count <= years; count = count + 1){
+	    	yearArray.pushObject(parseInt(age, 10) + count); 
 	    }
 
 	    this.set('interestRate', 0.5);
@@ -61,32 +66,33 @@ export default Ember.Component.extend({
 		 }
   }),
 
+	// label triggers the change here
 	getArray: computed('label', {
     get() {
     var retDataArray = [];
 		var years = this.get('years');
-		var monthlyPayment = this.get('session.user.availableIncome');
 		var interest = this.get('interestRate');
 		var label = this.get('label');
+		var monthlyPayment = this.get('session.user.availableIncome');
 		retDataArray.pushObject(label);
 
-			var i = interest / 100;
-	    i = i / 12;
-	    var ma = monthlyPayment;
-	    var prin = 0;
-	    var pmts = years * 12;
-	    let count = 0;
-	 
-	    while(count < pmts) {
-        var newprin = prin + ma;
-        prin = newprin + (newprin * i);
-        count = count + 1;
-        if((count) % 12 === 0) {
-					retDataArray.pushObject(parseInt(prin, 10));
-      	}
-      }
+    var i = interest / 100;
+    i = i / 12;
+    var principal = 0;
+    var payments = years * 12;
+    let count = 0;
 
-	    return retDataArray;
-		}
-	})
+    retDataArray.pushObject(parseInt(principal, 10));
+    while(count < payments) {
+      var newprin = principal + monthlyPayment;
+      principal = newprin + (newprin * i);
+      count = count + 1;
+      if((count) % 12 === 0) {
+        retDataArray.pushObject(parseInt(principal, 10));
+      }
+    }
+
+      return retDataArray;
+    }
+  })
 });
