@@ -131,7 +131,7 @@ export default DS.Model.extend({
       }
 
       return debtList.reduce((previous, current) => {
-        return previous + +current.monthlyPayment;
+        return previous + current.monthlyPayment;
       },0);
     }
   }),
